@@ -1,0 +1,45 @@
+---
+- name: Configure httpd with 2 virtual sites on ports 8001 and 8002
+  hosts: web
+  become: yes
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: Install httpd
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Create document roots
+      ansible.builtin.file:
+        path: "/var/www/html/{{ item }}"
+        state: directory
+        owner: apache
+        group: apache
+        mode: '0755'
+      loop: "{{ sites }}"
+
+    - name: Deploy custom index.html to each site
+      ansible.builtin.template:
+        src: templates/index.html.j2
+        dest: "/var/www/html/{{ item.name }}/index.html"
+        owner: apache
+        group: apache
+        mode: '0644'
+      loop: "{{ sites }}"
+
+    - name: Create custom vhost config
+      ansible.builtin.template:
+        src: templates/vhost.conf.j2
+        dest: /etc/httpd/conf.d/multi-site.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Restart httpd
+
+  handlers:
+    - name: Restart httpd
+      ansible.builtin.service:
+        name: httpd
+        state: restarted

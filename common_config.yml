@@ -1,0 +1,90 @@
+---
+- name: Base config for a Red Hat Enterprise Linux server
+  hosts: all
+  become: true
+  vars:
+    config_status: {}
+
+  tasks:
+    - name: Run base configuration with failure tracking
+      block:
+        - name: Ensure the system is up to date
+          ansible.builtin.yum:
+            name: '*'
+            state: latest
+
+        - name: Ensure the system is set to use the correct timezone
+          ansible.builtin.command: timedatectl set-timezone America/New_York
+
+        - name: Set SELinux state
+          ansible.posix.selinux:
+            policy: targeted
+            state: enforcing
+
+        - name: Set SELinux live
+          ansible.builtin.command: /usr/sbin/setenforce 1
+
+        - name: Install packages
+          ansible.builtin.package:
+            name:
+              - firewalld
+              - chrony
+            state: present
+
+        - name: Start and enable firewalld and chronyd
+          ansible.builtin.service:
+            name: "{{ item }}"
+            state: started
+            enabled: true
+          loop:
+            - firewalld
+            - chronyd
+
+        - name: Create a directory if it does not exist
+          ansible.builtin.file:
+            path: /etc/systemd/system/firewalld.service.d
+            state: directory
+
+        - name: Create a file if it does not exist
+          ansible.builtin.file:
+            path: /etc/systemd/system/firewalld.service.d/override.conf
+            state: touch
+
+        - name: Add a line to a file
+          ansible.builtin.lineinfile:
+            path: /etc/systemd/system/firewalld.service.d/override.conf
+            line: ExecStartPost=/usr/bin/firewall-cmd --reload
+
+        - name: Reload the daemon
+          ansible.builtin.systemd:
+            daemon_reload: true
+
+        - name: Set SSH root login
+          ansible.builtin.lineinfile:
+            path: /etc/ssh/sshd_config
+            line: PermitRootLogin yes
+            regexp: ^PermitRootLogin
+
+        - name: Restart sshd
+          ansible.builtin.service:
+            name: sshd
+            state: restarted
+
+        - name: Mark config success for host
+          ansible.builtin.set_fact:
+            config_status: "{{ config_status | combine({ inventory_hostname: 'Configuration succeeded at ' + ansible_date_time.iso8601 }) }}"
+
+      rescue:
+        - name: Mark config failure for host
+          ansible.builtin.set_fact:
+            config_status: "{{ config_status | combine({ inventory_hostname: 'Configuration FAILED at ' + ansible_date_time.iso8601 }) }}"
+
+    - name: Aggregate config status into global ITSM message
+      ansible.builtin.set_stats:
+        data:
+          itsm_update_message: |
+            {% for host, status in config_status.items() %}
+            - {{ host }}: {{ status }}
+            {% endfor %}
+        per_host: false
+      run_once: true

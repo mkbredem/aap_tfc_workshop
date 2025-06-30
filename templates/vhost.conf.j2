@@ -1,0 +1,17 @@
+Listen 8001
+Listen 8002
+
+{% for site in sites %}
+<VirtualHost *:{{ site.port }}>
+    DocumentRoot /var/www/html/{{ site.name }}
+    ServerName {{ site.name }}.example.com
+
+    <Directory /var/www/html/{{ site.name }}>
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    ErrorLog logs/{{ site.name }}-error.log
+    CustomLog logs/{{ site.name }}-access.log combined
+</VirtualHost>
+{% endfor %}

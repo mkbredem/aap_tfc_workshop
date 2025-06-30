@@ -1,0 +1,8 @@
+---
+sites:
+  - name: site1
+    port: 8001
+    title: "Welcome to Site 1"
+  - name: site2
+    port: 8002
+    title: "Welcome to Site 2"
