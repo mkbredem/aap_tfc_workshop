@@ -1,0 +1,7 @@
+[web]
+node1 ansible_host=node1.example.com
+node2 ansible_host=node2.example.com
+node3 ansible_host=node3.example.com
+
+[control]
+ansible-1 ansible_host=controller.example.com
