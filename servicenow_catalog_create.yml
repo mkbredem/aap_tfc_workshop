@@ -8,7 +8,8 @@
       ansible.builtin.debug:
         msg: |
           ITSM Update Summary:
-          {{ workflow_vars.itsm_update_message }}
+          Mock post provisioning Terraform provisioning request for:
+          {{ groups['web'] }}
 
           See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_catalog_update.yml
 

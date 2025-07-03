@@ -1,6 +1,6 @@
 ---
 - name: Base config for a Red Hat Enterprise Linux server
-  hosts: all
+  hosts: web
   become: true
   vars:
     config_status: {}
@@ -8,10 +8,11 @@
   tasks:
     - name: Run base configuration with failure tracking
       block:
-        - name: Ensure the system is up to date
-          ansible.builtin.yum:
-            name: '*'
-            state: latest
+###Commented out to speed up demo/workshop
+#        - name: Ensure the system is up to date
+#          ansible.builtin.yum:
+#            name: '*'
+#            state: latest
 
         - name: Ensure the system is set to use the correct timezone
           ansible.builtin.command: timedatectl set-timezone America/New_York
