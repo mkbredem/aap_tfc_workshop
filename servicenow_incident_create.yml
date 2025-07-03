@@ -1,0 +1,29 @@
+- name: Create ServiceNow incident based on failure message
+  hosts: localhost
+  gather_facts: false
+  vars:
+    incident_message: "{{ workflow_vars.itsm_fail_message | default('No failure message provided') }}"
+  tasks:
+
+    - name: Display the Incdent Details from workflow
+      ansible.builtin.debug:
+        msg: |
+          ITSM Incident Summary:
+          {{ workflow_vars.itsm_fail_message }}
+          See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_incident_create.yml
+
+# Create a change request in ServiceNow
+#    - name: Create ServiceNow incident
+#      servicenow.itsm.incident:
+#        state: new
+#        short_description: "Automation Failure Detected"
+#        description: "{{ incident_message }}"
+#        severity: 3
+#        impact: 2
+#        urgency: 2
+#        caller: "automation@yourcompany.com"
+#      register: snow_result
+#
+#    - name: Show result
+#      debug:
+#        var: snow_result.record.number
