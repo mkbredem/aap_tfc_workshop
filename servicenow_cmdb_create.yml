@@ -1,0 +1,30 @@
+---
+- name: Create ServiceNow CMDB Record
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+    - name: Set CMDB data to send to ServiceNow
+      set_fact:
+        cmdb_data:
+          name: "{{ inventory_hostname }}"
+          fqdn: "{{ ansible_fqdn | default(inventory_hostname) }}"
+          ip_address: "{{ ansible_default_ipv4.address }}"
+          os: "{{ ansible_distribution }} {{ ansible_distribution_version }}"
+          u_application: "web_app_1"
+          install_status: "1"  # Installed
+          short_description: "Provisioned with web_app_1 application"
+
+    - name: Print CMDB record to be created
+      debug:
+        var: cmdb_data
+
+#    - name: Create CMDB record for provisioned server
+#      servicenow.servicenow.now_cmdb:
+#        instance: "{{ servicenow_instance }}"
+#        username: "{{ servicenow_username }}"
+#        password: "{{ servicenow_password }}"
+#        table: cmdb_ci_server
+#        data: "{{ cmdb_data }}"
+#        state: present
+#      delegate_to: localhost
