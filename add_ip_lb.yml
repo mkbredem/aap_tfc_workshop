@@ -1,0 +1,15 @@
+---
+- name: Add web server IP addresses to load balancer
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Add IP addresses to load balancer
+      ansible.builtin.debug:
+        msg: |
+          Adding the hosts to the load balancer:
+          {% for ip in web_server_ips %}
+          - {{ ip }}
+          {% endfor %}
+      loop: "{{ groups['web'] }}"
+      loop_control:
+        label: "{{ item }}"
