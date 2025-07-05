@@ -29,7 +29,7 @@ controller_inventory_sources:
     limit: ""
     source_project: "Terraform Workshop Project"
     source_path: "inventory/hosts"
-    inventory: "Mock Inventory"
+    inventory: "Mock Dynamic Inventory"
     update_on_launch: "False"
     overwrite: "False"
 
