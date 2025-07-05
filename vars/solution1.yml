@@ -268,7 +268,7 @@ controller_templates:
     description: !unsafe ''
     organization: "Default"
     project: "Terraform Workshop Project"
-    inventory: "Mock Inventory"
+    inventory: "Mock Dynamic Inventory"
     playbook: "deploy_web_app.yml"
     scm_branch: ""
     forks: 0
