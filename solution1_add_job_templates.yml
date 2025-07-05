@@ -7,6 +7,13 @@
     - vars/solution1.yml
   connection: local
   tasks:
+    - name: show vars
+      ansible.builtin.debug:
+        msg: |
+          {{ aap_hostname }}
+          {{ aap_username }}
+          {{ aap_password }}
+
     - name: Call dispatch role
       ansible.builtin.include_role:
         name: infra.aap_configuration.dispatch
