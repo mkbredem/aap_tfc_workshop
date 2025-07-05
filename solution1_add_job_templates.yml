@@ -2,11 +2,12 @@
 - name: Solution 1 - Add Job Templates
   hosts: all
   gather_facts: false
-#  vars_files:
-#    - ../vault.yml
+  vars_files:
+    - ../vault.yml
+    - vars/solution1.yml
   connection: local
   tasks:
-    - name: Add all job templates needed for future exercises
+    - name: Call dispatch role
       ansible.builtin.include_role:
-        name: solution1_jts
+        name: infra.aap_configuration.dispatch
 ...
