@@ -4,14 +4,6 @@ controller_workflows:
     description: !unsafe ''
     organization: "Default"
     simplified_workflow_nodes:
-      - identifier: "Sync Inventory"
-        workflow_job_template: "Init and Deploy Web App 1"
-        unified_job_template: "Mock Dynamic Inventory Source"
-        limit: ""
-        organization: "Default"
-        all_parents_must_converge: "False"
-        success_nodes:
-          - "Apply Base Config"
       - identifier: "Create CR"
         workflow_job_template: "Init and Deploy Web App 1"
         unified_job_template: "1 - Create ITSM Change Request"
@@ -20,6 +12,14 @@ controller_workflows:
         all_parents_must_converge: "False"
         always_nodes:
           - "Sync Inventory"
+      - identifier: "Sync Inventory"
+        workflow_job_template: "Init and Deploy Web App 1"
+        unified_job_template: "Mock Dynamic Inventory Source"
+        limit: ""
+        organization: "Default"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Apply Base Config"
       - identifier: "Apply Base Config"
         workflow_job_template: "Init and Deploy Web App 1"
         unified_job_template: "3 - Apply Base Config"
