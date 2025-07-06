@@ -1,12 +1,12 @@
 ---
 - name: Remove hosts from Satellite or AD
-  hosts: localhost
+  hosts: "{{ vm_names }}"
   gather_facts: no
   tasks:
     - name: Add IP addresses to load balancer
       ansible.builtin.debug:
         msg: |
-          Depengind on the OS remove records of hosts from Satellite or AD:
+          Depending on the OS remove records of hosts from Satellite or AD:
           This task is undoing what was done in the corresponding common config
           role in post provisioning configuration workflow.
 

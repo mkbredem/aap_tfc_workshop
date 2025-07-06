@@ -1,6 +1,6 @@
 ---
 - name: Remove web server IP addresses from load balancer
-  hosts: localhost
+  hosts: "{{ vm_names }}"
   gather_facts: no
   tasks:
     - name: Add IP addresses to load balancer
@@ -10,7 +10,7 @@
           {% for ip in web_server_ips %}
           - {{ ip }}
           {% endfor %}
-      loop: "{{ remove_vms }}"
+      loop: "{{ vm_names }}"
       loop_control:
         label: "{{ item }}"
 

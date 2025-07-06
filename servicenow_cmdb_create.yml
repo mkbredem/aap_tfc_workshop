@@ -1,7 +1,6 @@
 ---
 - name: Create ServiceNow CMDB Record
-  hosts: localhost
-  gather_facts: no
+  hosts: "{{ vm_names }}"
   tasks:
 
     - name: Set CMDB data to send to ServiceNow
@@ -13,7 +12,7 @@
           os: "{{ ansible_distribution }} {{ ansible_distribution_version }}"
           u_application: "web_app_1"
           install_status: "1"  # Installed
-          short_description: "Provisioned with web_app_1 application"
+          short_description: "{{ catalogue_create_message }}" 
 
     - name: Print CMDB record to be created
       debug:
