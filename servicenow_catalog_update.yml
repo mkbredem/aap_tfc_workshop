@@ -8,6 +8,7 @@
       ansible.builtin.debug:
         msg: |
           ITSM Update Summary:
-          {{ workflow_vars.itsm_update_message }}
+          {{ remove_vm }} {{ itsm_update_message }}
 
           See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_catalog_update.yml
+

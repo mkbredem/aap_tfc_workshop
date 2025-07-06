@@ -2,6 +2,7 @@
 - name: Create ServiceNow Change Request
   hosts: localhost
   gather_facts: no
+
   tasks:
 
     - name: Display the ITSM update message from workflow
@@ -9,7 +10,7 @@
         msg: |
           ITSM Update Summary:
           Mock post provisioning Terraform provisioning request for:
-          {{ groups['web'] }}
+          {{ vm_names }} {{ catalogue_create_message | default('No update message provided') }}
 
           See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_catalog_update.yml
 

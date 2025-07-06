@@ -184,4 +184,7 @@ controller_templates:
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
+
+controller_workflows:
+
 ...
