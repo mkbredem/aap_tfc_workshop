@@ -1,5 +1,5 @@
 ---
-controller_job_templates:
+controller_templates:
   - name: "D1 - Remove Hosts from LB"
     description: !unsafe ''
     organization: "Default"
