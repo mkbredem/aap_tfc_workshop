@@ -3,8 +3,7 @@
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Add IP addresses to load balancer
-      ansible.builtin.debug:
+    - ansible.builtin.debug:
         msg: |
           Depending on the OS remove records of hosts from Satellite or AD:
           This task is undoing what was done in the corresponding common config
@@ -15,4 +14,10 @@
         msg: |
           Example Satellite Removal: https://github.com/shadowman-lab/Ansible-Provision/blob/main/roles/shadowman_unsubscribe/tasks/rhel_unsubscribe.yml
           Example Active Dir Removal: https://github.com/shadowman-lab/Ansible-Provision/blob/main/roles/shadowman_unsubscribe/tasks/windows_unsubscribe.yml
+
+    - name: set itsm message
+      ansible.builtin.set_stats:
+        data:
+          itsm_update_message: "Removed {{ vm_names | join(', ') }} from Satellite or AD"
+        per_host: false
 ...

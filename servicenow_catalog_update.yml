@@ -8,7 +8,8 @@
       ansible.builtin.debug:
         msg: |
           ITSM Update Summary:
-          {{ remove_vm }} {{ itsm_update_message }}
-
+          {% for fqdn in vm_names %}
+          - {{ fqdn }} {{ itsm_update_message }}
+          {% endfor %}
           See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_catalog_update.yml
 

@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
 
-    - name: Set CMDB data to send to ServiceNow
+    - name: CMDB data
       set_fact:
         cmdb_data:
           name: "{{ item }}"
@@ -15,7 +15,7 @@
           install_status: "1"  # Installed
       loop: "{{ vm_names }}"
 
-    - name: Print CMDB record to be created
+    - name: Print example of cmdb update module
       debug:
         msg: |
           Example task updating cmdb record:

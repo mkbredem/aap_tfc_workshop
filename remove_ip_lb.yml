@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Add IP addresses to load balancer
+    - name: remove hosts from load balancer
       ansible.builtin.debug:
         msg: |
           Removing hosts from the load balancer:
