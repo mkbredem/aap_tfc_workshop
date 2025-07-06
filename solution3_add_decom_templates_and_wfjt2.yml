@@ -10,11 +10,16 @@
     - name: show vars
       ansible.builtin.debug:
         msg: |
-          {{ aap_hostname }}
-          {{ aap_username }}
-          {{ aap_password }}
+          {{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+          {{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}
+          {{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}
 
     - name: Call dispatch role
       ansible.builtin.include_role:
         name: infra.aap_configuration.dispatch
+      vars:
+        aap_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        aap_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
+        aap_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
+        controller_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
 ...
