@@ -270,7 +270,7 @@ controller_workflows:
       catalogue_create_message: Decommsioning servers before terraform destroy. \n\nIn this mock terraform demo, remove_vms are passed via a survey. \n\nIn a live AAP - Terraform integration, the remove_vms array of hosts \nwould be derived from a diff in the TFC plan results indicating \nresources to be destroyed
     survey_enabled: true
     survey_spec:
-      name: ""
+      name: "gather vm names"
       spec:
         - max: 1024
           min: 0
