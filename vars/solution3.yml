@@ -1,3 +1,4 @@
+---
 controller_job_templates:
   - name: "D1 - Remove Hosts from LB"
     description: !unsafe ''
@@ -183,3 +184,4 @@ controller_job_templates:
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
+...
