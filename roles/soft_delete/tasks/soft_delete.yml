@@ -9,6 +9,11 @@
     status_code: 200
   register: host_metric
 
+- name: show host_metric gathered vars
+  ansible.builtin.debug:
+    msg: |
+      {{ host_metric }}
+
 - name: Soft Delete host
   ansible.builtin.uri:
     url: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}/api/controller/v2/host_metrics/{{ host_metric.json.results[0].id }}
