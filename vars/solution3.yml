@@ -262,7 +262,7 @@ controller_workflows:
     ask_variables_on_launch: "False"
     allow_simultaneous: "False"
     scm_branch: ""
-    limit: "remove_vms"
+    limit: ""
     ask_limit_on_launch: false
     ask_inventory_on_launch: false
     webhook_service: ""
