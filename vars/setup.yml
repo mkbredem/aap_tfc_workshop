@@ -25,6 +25,7 @@ controller_templates:
     credentials:
       - "Demo Credential"
       - "vault"
+      - "AAP Credential"
     allow_simultaneous: false
     ask_scm_branch_on_launch: false
     ask_diff_mode_on_launch: false
@@ -42,11 +43,7 @@ controller_templates:
     ask_job_slice_count_on_launch: false
     ask_timeout_on_launch: false
     ask_instance_groups_on_launch: false
-    extra_vars:
-      controller_hostname: controller.97mwl.sandbox837.opentlc.com
-      aap_password: R3dh4t1!
-      aap_service_account_password: R3dh4t1!
-      student_account: admin
+    extra_vars: ""
     job_tags: ""
     force_handlers: false
     skip_tags: ""
@@ -76,6 +73,7 @@ controller_templates:
     credentials:
       - "Demo Credential"
       - "vault"
+      - "AAP Credential"
     allow_simultaneous: false
     ask_scm_branch_on_launch: false
     ask_diff_mode_on_launch: false
@@ -93,11 +91,55 @@ controller_templates:
     ask_job_slice_count_on_launch: false
     ask_timeout_on_launch: false
     ask_instance_groups_on_launch: false
-    extra_vars:
-      controller_hostname: controller.97mwl.sandbox837.opentlc.com
-      aap_password: R3dh4t1!
-      aap_service_account_password: R3dh4t1!
-      student_account: admin
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    custom_virtualenv: ""
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+
+  - name: "Solution3  - Decommission Workflow Job Template"
+    description: !unsafe ''
+    organization: "Default"
+    project: "Terraform Workshop Project"
+    inventory: "Demo Inventory"
+    playbook: "solution3_add_decom_templates_and_wfjt2.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Demo Credential"
+      - "vault"
+      - "AAP Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
     job_tags: ""
     force_handlers: false
     skip_tags: ""
