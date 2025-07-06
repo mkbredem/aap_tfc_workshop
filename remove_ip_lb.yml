@@ -7,12 +7,9 @@
       ansible.builtin.debug:
         msg: |
           Removing hosts from the load balancer:
-          {% for ip in web_server_ips %}
-          - {{ ip }}
+          {% for fqdn in vm_names %}
+          - {{ fqdn }}
           {% endfor %}
-      loop: "{{ vm_names }}"
-      loop_control:
-        label: "{{ item }}"
 
     - name: Link to Example Citrix LB Code
       ansible.builtin.debug:
