@@ -1,0 +1,18 @@
+---
+- name: Remove hosts from Satellite or AD
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Add IP addresses to load balancer
+      ansible.builtin.debug:
+        msg: |
+          Depengind on the OS remove records of hosts from Satellite or AD:
+          This task is undoing what was done in the corresponding common config
+          role in post provisioning configuration workflow.
+
+    - name: Links to Example Record Removal
+      ansible.builtin.debug:
+        msg: |
+          Example Satellite Removal: https://github.com/shadowman-lab/Ansible-Provision/blob/main/roles/shadowman_unsubscribe/tasks/rhel_unsubscribe.yml
+          Example Active Dir Removal: https://github.com/shadowman-lab/Ansible-Provision/blob/main/roles/shadowman_unsubscribe/tasks/windows_unsubscribe.yml
+...

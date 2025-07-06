@@ -1,0 +1,4 @@
+---
+- name: Loop to soft delete all hosts
+  ansible.builtin.include_tasks: soft_delete.yml
+  loop: "{{ remove_vms }}"
