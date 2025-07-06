@@ -1,6 +1,6 @@
 ---
 - name: Remove hosts from Satellite or AD
-  hosts: "{{ vm_names }}"
+  hosts: localhost
   gather_facts: no
   tasks:
     - name: Add IP addresses to load balancer
