@@ -282,6 +282,6 @@ controller_workflows:
           required: True
           variable: vm_names
           new_question: False
-          question_name: !unsafe "Which VMs would you like to remove"
+          question_name: "Which VMs would you like to remove"
       description: ""
 ...
