@@ -1,6 +1,6 @@
 ---
 - name: Remove web server IP addresses from load balancer
-  hosts: "{{ vm_names }}"
+  hosts: localhost
   gather_facts: no
   tasks:
     - name: Add IP addresses to load balancer
