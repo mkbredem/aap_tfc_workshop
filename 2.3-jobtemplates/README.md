@@ -74,12 +74,11 @@ The first template we will add runs a playbook that actually automates AAP itsel
    </tr>
    <tr>
      <td>Extra Vars</td>
-     <td>```yml
-     controller_hostname: controller.<CHANGE>.sandbox<CHANGE>.opentlc.com
+     <td>
+       <pre><code>controller_hostname: controller.&lt;CHANGE&gt;.sandbox&lt;CHANGE&gt;.opentlc.com
 aap_password: R3dh4t1!
 aap_service_account_password: R3dh4t1!
-student_account: admin
-```
+student_account: admin</code></pre>
      </td>
    </tr>
  </table>
