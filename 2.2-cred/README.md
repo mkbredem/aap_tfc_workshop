@@ -139,7 +139,7 @@ In a true integration with AAP and Terraform, you will be able to dynamically pu
 * Click **Create inventory** button
 
 ### 9. Add "Mock Dynamic Inventory Source"
-Now for the Dynamic Inventory Cource, that would sync after provisioning and before configuration.
+Now for the dynamic inventory source that would sync after provisioning and before configuration.
 
 * Go to “Sources” (tab) of **Mock Dynamic Inventory** → Click **“Create Source”**. Fill in the form:
 
@@ -176,7 +176,15 @@ Your Inventory Source Shoudl Look Like This
 ![Source details](images/Terraform_dynamic_inventory_source.png)
 
 ### 10. Conclusion
-This workshop introduces the essential concepts of inventories and credentials within Ansible Automation Controller. Mastering these components is critical for effectively managing your automation environments and ensuring secure access to your infrastructure.
+Throughout this exercise, you explored key building blocks of Ansible Automation Controller—credentials, projects, and inventories—that are foundational to scalable and secure automation.
+
+You began by working with machine credentials and vault credentials, which ensure secure and role-based access to systems and secrets. Then, you defined a project to source playbooks from Git, simulating modern DevOps workflows that integrate infrastructure as code with configuration automation.
+
+By creating and exploring both static and mock dynamic inventories, you mimicked real-world provisioning scenarios, where dynamic sources like cloud providers or Terraform output are used to populate and target hosts. This exercise prepared you to design workflows that adapt automatically as infrastructure changes.
+
+Mastering these controller concepts equips you to build more robust, maintainable automation pipelines—whether you’re configuring a single server or orchestrating a hybrid cloud fleet.
+
+You’re now ready to build some job templates (playbook executions).
 
 ---
 **Navigation**
