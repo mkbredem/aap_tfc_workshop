@@ -13,9 +13,7 @@
           {{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
           {{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}
           {{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}
-          {{ aap_hostname }}
-          {{ aap_username }}
-          {{ aap_password }}
+
 
     - name: Call dispatch role
       ansible.builtin.include_role:
