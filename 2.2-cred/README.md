@@ -6,9 +6,11 @@ This workshop provides practical experience with managing inventories and creden
 ## Table of Contents
 1. [Introduction to Inventories](#1-introduction-to-inventories)
 2. [Exploring the 'Workshop Inventory'](#2-exploring-the-workshop-inventory)
-3. [Understanding Machine Credentials](#3-understanding-machine-credentials)
-4. [Additional Credential Types](#4-additional-credential-types)
-5. [Conclusion](#5-conclusion)
+3. [Add "Mock Dynamic Inventory"](#3-add-mock-dynamic-inventory)
+4. [Understanding Machine Credentials](#4-understanding-machine-credentials)
+5. [Additional Credential Types](#5-additional-credential-types)
+6. [Add Vault Credential](#6-add-vault-credential)
+7. [Conclusion](#7-conclusion)
 
 ### 1. Introduction to Inventories
 In automation controller, inventories define and organize the hosts your playbooks will target. They can be static (a fixed list of hosts) or dynamic (sourced from external systems).
