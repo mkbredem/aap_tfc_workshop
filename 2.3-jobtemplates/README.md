@@ -83,45 +83,12 @@ student_account: admin</code></pre>
    </tr>
  </table>
 
-[https://github.com/ansible/workshop-examples](https://github.com/ansible/workshop-examples)
+* Click **Create job template** 
+* Click **Launch template** click to run the Setup JT
 
-A playbook to install the Apache web server has already been committed to the directory **rhel/apache**, `apache_install.yml`:
+Once it is done running, let’s see what was created:
+* Go to **Automation Execution → Templates**
 
-```yaml
----
-- name: Apache server installed
-  hosts: web
-
-  tasks:
-  - name: latest Apache version installed
-    ansible.builtin.yum:
-      name: httpd
-      state: latest
-
-  - name: latest firewalld version installed
-    ansible.builtin.yum:
-      name: firewalld
-      state: latest
-
-  - name: firewalld enabled and running
-    ansible.builtin.service:
-      name: firewalld
-      enabled: true
-      state: started
-
-  - name: firewalld permits http service
-    ansible.builtin.firewalld:
-      service: http
-      permanent: true
-      state: enabled
-      immediate: yes
-
-  - name: Apache enabled and running
-    ansible.builtin.service:
-      name: httpd
-      enabled: true
-      state: started
-```
 
 > **Tip**
 >
