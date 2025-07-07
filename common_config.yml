@@ -4,9 +4,10 @@
   become: true
   vars:
     config_status: {}
+    vm_names: []
 
   tasks:
-    - name: Ensure the config_status variable is initialized
+    - name: initialize vm_names
       ansible.builtin.set_stats:
         data:
           vm_names: "{{ groups['web'] }}"
