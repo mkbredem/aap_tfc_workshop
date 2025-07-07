@@ -1,8 +1,5 @@
 # Workshop Exercise: Managing Inventories and Credentials in Ansible Automation Controller
 
-**Available in other languages**:
-<br>![uk](../../../images/uk.png) [English](README.md), ![japan](../../../images/japan.png) [日本語](README.ja.md), ![france](../../../images/fr.png) [Française](README.fr.md), ![Español](../../../images/col.png) [Español](README.es.md).
-
 ## Objective
 This workshop provides practical experience with managing inventories and credentials in  automation controller. You’ll learn how to navigate a preloaded inventory, understand its structure, and set up machine credentials for accessing managed hosts.
 
@@ -42,6 +39,35 @@ Automation controller supports over 30 different credential types for various au
 - **Amazon Web Services (AWS) Credentials:** For integrating with AWS services.
 
 These credential types enhance the flexibility and security of your automation efforts.
+
+### 5. Add Vault Credential
+
+* Go to **Automation Execution → Infrastructure → Credentials** click the **Create Credential** button. Fill in the form:
+
+ <table>
+   <tr>
+     <th>Parameter</th>
+     <th>Value</th>
+   </tr>
+   <tr>
+     <td>Name</td>
+     <td>vault</td>
+   </tr>
+   <tr>
+     <td>Organization</td>
+     <td>Default</td>
+   </tr>
+   <tr>
+     <td>Credential Type</td>
+     <td>Vault</td>
+   </tr>
+   <tr>
+     <td>Vault Password</td>
+     <td>R3dh4t1!</td>
+   </tr>
+ </table>
+
+* Click **Create credential** button
 
 ### 5. Conclusion
 This workshop introduces the essential concepts of inventories and credentials within Ansible Automation Controller. Mastering these components is critical for effectively managing your automation environments and ensuring secure access to your infrastructure.
