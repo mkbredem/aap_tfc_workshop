@@ -6,6 +6,18 @@
     config_status: {}
 
   tasks:
+    - name: Ensure the config_status variable is initialized
+      ansible.builtin.set_stats:
+        data:
+          vm_names: "{{ groups['web'] }}"
+          #vm_names: {{ groups['web'] | map('extract', hostvars, 'inventory_hostname') | list }}
+        per_host: false
+      run_once: true
+
+    - name: Initialize config_status variable
+      ansible.builtin.debug:
+        msg: "Initializing config_status for hosts: {{ vm_names }}"
+
     - name: Run base configuration with failure tracking
       block:
 ###Commented out to speed up demo/workshop
