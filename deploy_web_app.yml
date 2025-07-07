@@ -64,9 +64,13 @@
             immediate: true
           loop: "{{ sites }}"
 
-        - name: Allow Apache to listen on port 8001
-          ansible.builtin.command: semanage port -a -t http_port_t -p tcp 8001
-          ignore_errors: true
+        - name: Allow Apache to bind to custom ports in SELinux
+          community.general.seport:
+            ports: "{{ item.port }}"
+            proto: tcp
+            setype: http_port_t
+            state: present
+          loop: "{{ sites }}"
 
         - name: Mark deploy success for host
           ansible.builtin.set_fact:
