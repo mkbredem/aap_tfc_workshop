@@ -48,6 +48,22 @@
             mode: '0644'
           notify: Restart httpd
 
+        - name: Ensure Apache listens on custom ports
+          ansible.builtin.lineinfile:
+            path: /etc/httpd/conf/httpd.conf
+            line: "Listen {{ item.port }}"
+            insertafter: BOF
+            state: present
+          loop: "{{ sites }}"
+
+        - name: Open ports 8001 and 8002 in firewalld
+          ansible.posix.firewalld:
+            port: "{{ item.port }}/tcp"
+            permanent: true
+            state: enabled
+            immediate: true
+          loop: "{{ sites }}"
+
         - name: Allow Apache to listen on port 8001
           ansible.builtin.command: semanage port -a -t http_port_t -p tcp 8001
 
