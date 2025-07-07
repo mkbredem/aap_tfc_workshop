@@ -242,6 +242,6 @@ Verify that the output result shows `Hello World`
 ---
 **Navigation**
 <br>
-[Previous Exercise](../2.5-rbac) - [Next Exercise](../2.7-wrap)
+[Previous Exercise](../2.3-jobtemplates/) - [Next Exercise](../2.5-surveys/)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-2---ansible-tower-exercises)

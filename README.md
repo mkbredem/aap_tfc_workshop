@@ -57,11 +57,11 @@ Having said that, the exercises themselves should take roughly 4-5 hours. The fi
 ## Section 2 - Ansible Automation Platform Exercises
 
 * [Exercise 2.1 - Introduction to Ansible Automation Platform](2.1-intro)
-* [Exercise 2.2 - Managing Inventories and Credentials in Ansible Automation Controller](2.2-cred)
-* [Exercise 2.3 - Projects & job templates](2.3-projects)
-* [Exercise 2.4 - Surveys](2.4-surveys)
-* [Exercise 2.5 - Role-based Access Control (RBAC)](2.5-rbac)
-* [Exercise 2.6 - Workflows](2.6-workflows)
+* [Exercise 2.2 - Managing Credentials, Projects and Inventories in AAP](2.2-cred)
+* [Exercise 2.3 - Working with job templates](2.3-projects)
+* [Exercise 2.4 - Workflows](2.4-workflows/)
+* [Exercise 2.5 - Surveys](2.5-surveys/)
+* [Exercise 2.6 - Role-based Access Control (RBAC)](2.6-rbac/)
 * [Exercise 2.7 - Wrap up](2.7-wrap)
 
 ---

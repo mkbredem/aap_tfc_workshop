@@ -138,5 +138,5 @@ Verify that the output result is as expected.
 {% if page.url contains 'ansible_rhel_90' %}
 [Previous Exercise](../4-variables) - [Next Exercise](../../ansible_rhel_90/6-system-roles/)
 {% else %}
-[Previous Exercise](../2.3-projects) - [Next Exercise](../2.5-rbac)
+[Previous Exercise](../2.4-workflows/) - [Next Exercise](../2.6-rbac/)
 {% endif %}

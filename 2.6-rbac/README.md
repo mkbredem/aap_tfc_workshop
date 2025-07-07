@@ -127,6 +127,6 @@ This capability is one of the main strengths of Ansible automation controller\!
 ---
 **Navigation**
 <br>
-[Previous Exercise](../2.4-surveys) - [Next Exercise](../2.6-workflows)
+[Previous Exercise](../2.5-surveys/) - [Next Exercise](../2.7-wrap/)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-2---ansible-tower-exercises)
