@@ -72,6 +72,11 @@
             state: present
           loop: "{{ sites }}"
 
+        - name: Set SELinux to permissive permanently
+          ansible.posix.selinux:
+            policy: targeted
+            state: permissive
+
         - name: Mark deploy success for host
           ansible.builtin.set_fact:
             config_status: "{{ config_status | combine({ inventory_hostname: 'web_app_1 deploy succeeded at ' + ansible_date_time.iso8601 }) }}"
