@@ -99,9 +99,18 @@ Once it is done running, see the following resources were created for you:
 
 * **AAP Credential:** this credential is used by the Solution[1:3] to authenticate into the Automation Controller API, similar to the Extra Vars you pasted into **Setup** job template in **Step 6**.
 
+## Add all the job templates needed for post provisioning configuration
+
+
+
 > **Tip**
 >
-> Note the difference from other playbooks you might have written\! Most importantly there is no `become` and `hosts` is set to `web`.
+> Copy and paste the Name value into the Job Templates, so if a Solution is used, the job templates you created will simply be updated or skipped if no changes are identified, otherwise, you will have similarly named redundant job templates when a solution runs.
+
+> **Tip**
+>
+> if at any point you’ve had enough practice building job templates, or if you get the idea, you can skipp to [Solution1](#solution-1) to have ansible create all these tasks for you.
+
 
 To configure and use this repository as a **Source Control Management (SCM)** system in automation controller you have to create a **Project** that uses the repository
 
@@ -242,7 +251,7 @@ Since this might take some time, have a closer look at all the details provided:
 
 After the Job has finished go to the main **Jobs** view: All jobs are listed here, you should see directly before the Playbook run an Source Control Update was started. This is the Git update we configured for the **Project** on launch\!
 
-### Challenge Lab: Check the Result
+### Solution 1
 
 Time for a little challenge:
 
