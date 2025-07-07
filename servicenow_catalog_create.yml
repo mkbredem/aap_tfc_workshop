@@ -1,6 +1,6 @@
 ---
 - name: Create ServiceNow Change Request
-  hosts: localhost
+  hosts: all,localhost
   gather_facts: no
   vars:
     vm_names: "{{ group['web'] }}"
