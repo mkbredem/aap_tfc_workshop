@@ -12,19 +12,77 @@
 
 ## Objective
 
-An Ansible automation controller **Project** is a logical collection of Ansible playbooks. You can manage your playbooks by placing them into a source code management (SCM) system supported by automation controller such as Git or Subversion.
+A **job template** allows you to run an automation job. In order to run any type of automation, a job template must be created. A job template consists of knowning the following information:
+
+Inventory: On what hosts should the job run?
+
+Credentials What credentials are needed to log into the hosts?
+
+Project: Where is the playbook?
+
+Playbook: What playbook to use?
 
 This exercise covers:
 
-* Understanding and using an Ansible automation controller Project
-* Using Ansible playbooks stored in a Git repository.
-* Creating and using an Ansible Job Template
+* Understanding and using/defining Ansible automation controller Job Templates
+* Using a Job Template to create more Job Templates.
 
 ## Guide
 
-### Setup Git Repository
+### Add "Setup Job Template"
+The first template we will add runs a playbook that actually automates AAP itself using configuration as code.  This job template will build out other resources (credentials, inventories, and job templates) that can optionally be used needed for the rest of the workshop, as well as provide solutions or shortcuts.  
 
-For this demonstration, we will use playbooks stored in a Git repository:
+### Create “Setup” job template:
+* Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
+
+ <table>
+   <tr>
+     <th>Parameter</th>
+     <th>Value</th>
+   </tr>
+   <tr>
+     <td>Name</td>
+     <td>Setup</td>
+   </tr>
+   <tr>
+     <td>Organization</td>
+     <td>Default</td>
+   </tr>
+   <tr>
+     <td>Project</td>
+     <td>Terraform Workshop Project</td>
+   </tr>
+   <tr>
+     <td>Inventory</td>
+     <td>Demo Inventory</td>
+   </tr>
+   <tr>
+     <td>Playbook</td>
+     <td>setup_workshop_solutions.yml</td>
+   </tr>
+   <tr>
+     <td>Execution Environment</td>
+     <td>Default execution environment</td>
+   </tr>
+   <tr>
+     <td>Playbook</td>
+     <td>setup_workshop_solutions.yml</td>
+   </tr>
+   <tr>
+     <td>Credentials</td>
+     <td>Demo Credential | Vault</td>
+   </tr>
+   <tr>
+     <td>Extra Vars</td>
+     <td>```yml
+     controller_hostname: controller.<CHANGE>.sandbox<CHANGE>.opentlc.com
+aap_password: R3dh4t1!
+aap_service_account_password: R3dh4t1!
+student_account: admin
+```
+     </td>
+   </tr>
+ </table>
 
 [https://github.com/ansible/workshop-examples](https://github.com/ansible/workshop-examples)
 

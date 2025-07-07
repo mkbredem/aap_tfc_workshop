@@ -188,6 +188,6 @@ You’re now ready to build some job templates (playbook executions).
 
 ---
 **Navigation**
-<br>[Previous Exercise](../2.1-intro) | [Next Exercise](../2.3-projects)  
+<br>[Previous Exercise](../2.1-intro) | [Next Exercise](../2.3-jobtemplates/) 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-2---ansible-tower-exercises)
 
