@@ -95,7 +95,7 @@ This exercise covers:
    </tr>
    <tr>
      <td>Source control URL</td>
-     <td><https://github.com/mkbredem/aap_tfc_workshop.git></td>
+     <td>https://github.com/mkbredem/aap_tfc_workshop.git</td>
    </tr>
  </table>
 
