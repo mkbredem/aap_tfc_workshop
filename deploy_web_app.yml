@@ -2,6 +2,9 @@
 - name: Configure httpd with 2 virtual sites on ports 8001 and 8002
   hosts: web
   become: yes
+  vars:
+    config_status: {}
+
   vars_files:
     - vars/main.yml
 
@@ -58,7 +61,7 @@
             {% endfor %}
         per_host: false
       run_once: true
-      
+
   handlers:
     - name: Restart httpd
       ansible.builtin.service:
