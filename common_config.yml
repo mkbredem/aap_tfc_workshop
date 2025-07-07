@@ -10,8 +10,8 @@
     - name: initialize vm_names
       ansible.builtin.set_stats:
         data:
-          vm_names: "{{ groups['web'] }}"
-          #vm_names: {{ groups['web'] | map('extract', hostvars, 'inventory_hostname') | list }}
+          #vm_names: "{{ groups['web'] }}"
+          vm_names: {{ groups['web'] | map('extract', hostvars, 'inventory_hostname') | list }}
         per_host: false
       run_once: true
 
