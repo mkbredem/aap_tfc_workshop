@@ -11,6 +11,11 @@
   tasks:
     - name: deploy web app1 tasks
       block:
+        - name: Force failure if deploy_fail is true
+          ansible.builtin.fail:
+            msg: "Intentional failure triggered by deploy_fail=true"
+          when: deploy_fail | default(false) | bool
+  
         - name: Install httpd
           ansible.builtin.yum:
             name: httpd
@@ -18,7 +23,7 @@
     
         - name: Create document roots
           ansible.builtin.file:
-            path: "/var/www/html/{{ item }}"
+            path: "/var/www/html/{{ item.name }}"
             state: directory
             owner: apache
             group: apache
