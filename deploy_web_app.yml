@@ -13,7 +13,7 @@
 
     - name: Create document roots
       ansible.builtin.file:
-        path: "/var/www/html/{{ item }}"
+        path: "/var/www/html/{{ item.name }}"
         state: directory
         owner: apache
         group: apache
