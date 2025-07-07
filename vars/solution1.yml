@@ -35,7 +35,7 @@ controller_inventory_sources:
 
 controller_templates:
   - name: "3 - Apply Base Config"
-    description: !unsafe ''
+    description: !unsafe 'Common Server Configuration (agents, hardening, etc..)'
     organization: "Default"
     project: "Terraform Workshop Project"
     inventory: "Mock Dynamic Inventory"
@@ -49,6 +49,7 @@ controller_templates:
     use_fact_cache: false
     credentials:
       - "Workshop Credentials"
+      - "vault"
     allow_simultaneous: false
     ask_scm_branch_on_launch: false
     ask_diff_mode_on_launch: false
