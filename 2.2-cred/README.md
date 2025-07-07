@@ -21,8 +21,31 @@ The _Workshop Inventory_ is preloaded in your lab environment, representing a st
 
 ![Hosts](images/hosts.png)
 
+### 3. Add "Mock Dynamic Inventory"
+The Workshop Inventory above is pre-built, however this workshop is designed to mimic the fact that inventories will be dynamically pulled from the hyperscaler/hypervisor that terraform builds from the main.tf file.  To mimic this, we will dynamically pull the inventory from a project.
 
-### 3. Understanding Machine Credentials
+In a true integration with AAP and Terraform, you will be able to dynamically pull inventories from the hypervisor and group them based on tags, which those groups would then be targeted for post-provisioning configuration.
+
+* Go to **Automation Execution → Infrastructure → Inventories** click the **Create inventory** button. Fill in the form:
+
+ <table>
+   <tr>
+     <th>Parameter</th>
+     <th>Value</th>
+   </tr>
+   <tr>
+     <td>Name</td>
+     <td>Mock Dynamic Inventory</td>
+   </tr>
+   <tr>
+     <td>Organization</td>
+     <td>Default</td>
+   </tr>
+ </table>
+
+* Click **Create inventory** button
+
+### 4. Understanding Machine Credentials
 Machine credentials are essential for establishing secure SSH connections to managed hosts.
 
 - **Accessing Credentials:** Navigate to **Automation Execution → Infrastructure→ Credentials** and select _Workshop Credentials_.
@@ -31,7 +54,7 @@ Machine credentials are essential for establishing secure SSH connections to man
   - **Username:** A predefined user, such as `ec2-user`.
   - **SSH Private Key:** Encrypted, providing secure access to hosts.
 
-### 4. Additional Credential Types
+### 5. Additional Credential Types
 Automation controller supports over 30 different credential types for various automation tasks. Here are a few common ones:
 
 - **Network Credentials:** For managing network devices.
@@ -40,7 +63,7 @@ Automation controller supports over 30 different credential types for various au
 
 These credential types enhance the flexibility and security of your automation efforts.
 
-### 5. Add Vault Credential
+### 6. Add Vault Credential
 
 * Go to **Automation Execution → Infrastructure → Credentials** click the **Create Credential** button. Fill in the form:
 
@@ -69,7 +92,7 @@ These credential types enhance the flexibility and security of your automation e
 
 * Click **Create credential** button
 
-### 5. Conclusion
+### 7. Conclusion
 This workshop introduces the essential concepts of inventories and credentials within Ansible Automation Controller. Mastering these components is critical for effectively managing your automation environments and ensuring secure access to your infrastructure.
 
 ---
