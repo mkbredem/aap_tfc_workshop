@@ -101,6 +101,141 @@ Once it is done running, see the following resources were created for you:
 
 ## Add all the job templates needed for post provisioning configuration
 
+### Base Config
+The logical place to start would be to perform a base configuration of the newly provisioned servers.  This may include things like hardening configurations, installing and activating security agents, and other compliance requirements needed on all servers:
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 3 - Apply Base Config
+Description: Common Server Configuration (agents, hardening, etc..)
+Inventory: Mock Dynamic Inventory
+Project: Terraform Workhsop Project
+Playbook: common_config.yml
+Execution environment: Default Execution Environment
+Credentials: 
+Workshop Credentials | Machine
+Vault | Vault
+Click “Create job template” button
+### Create CR
+In order to track resources being created in ITSM, we need to create a change request:
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 1 - Create ITSM Change Request
+Description: 
+Inventory: Demo Inventory
+Project: Terraform Workhsop Project
+Playbook: servicenow_catalog_create.yml
+Execution environment: Default Execution Environment
+Credentials: Demo Credential | Machine
+Click “Create job template” button
+### Deploy Application
+Upon successful completion of the Common Config, we will need to run additional configurations in order to deploy the application that will run on the server.
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+### Create “Setup” job template:
+* Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
+
+ <table>
+   <tr>
+     <th>Parameter</th>
+     <th>Value</th>
+   </tr>
+   <tr>
+     <td>Name</td>
+     <td></td>
+   </tr>
+   <tr>
+     <td>Organization</td>
+     <td></td>
+   </tr>
+   <tr>
+     <td>Inventory</td>
+     <td>Demo Inventory</td>
+   </tr>
+   <tr>
+     <td>Project</td>
+     <td>Terraform Workshop Project</td>
+   </tr>
+   <tr>
+     <td>Playbook</td>
+     <td></td>
+   </tr>
+   <tr>
+     <td>Execution Environment</td>
+     <td>Default execution environment</td>
+   </tr>
+  <td>Credentials</td>
+  <td>
+    Workshop Credentials | Machine<br>
+    Vault | Vault<br>
+  </td>
+ </table>
+
+* Click **Create job template** 
+
+Name: 4 - Deploy Web App 1
+Description: Common Server Configuration (agents, hardening, etc..)
+Inventory: Mock Dynamic Inventory
+Project: Terraform Workhsop Project
+Playbook: common_config.yml
+Execution environment: Default Execution Environment
+Credentials: 
+Workshop Credentials | Machine
+Vault | Vault
+Click “Create job template” button
+### Add Hosts to Load Balancer
+Then we will need to add the host(s) to a load balancer.  Since this is targeting a device external to the inventory we are configuring directly, we will need to create a separate job template for this piece as well.
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 5 - Add Hosts to LB
+Description: 
+Inventory: Demo Inventory
+Project: Terraform Workhsop Project
+Playbook: add_ip_lb.yml
+Execution environment: Default Execution Environment
+Credentials: Demo Credential | Machine
+Click “Create job template” button
+### Add hosts to CMDB
+Now that the server is configured and the app deployoed, we will need to add it to our CMDB database, our single source of truth.
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 6 - Create CMDB Records
+Description: 
+Inventory: Demo Inventory
+Project: Terraform Workhsop Project
+Playbook: servicenow_cmdb_create.yml
+Execution environment: Default Execution Environment
+Credentials: Demo Credential | Machine
+Click “Create job template” button
+### Update CR
+We will need to periodically update the change request we created earlier with notes to indicate progress (i.e. common config complete, app deploy complete, or even app deploy fail, etc…).
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 7 - Update ITSM Change Request
+Description: 
+Inventory: Demo Inventory
+Project: Terraform Workhsop Project
+Playbook: servicenow_catalog_update.yml
+Execution environment: Default Execution Environment
+Credentials: Demo Credential | Machine
+Click “Create job template” button
+### Create Incident
+What if one of the configuration, deploy, adding to loadbalancer job fail?  We will need to create an incident for investigation and/or remediation, to finish and test the configurations.
+Automation Execution → Templates →  Create Template
+Complete form as follows:
+Name: 8 - Create ITSM Incident
+Description: 
+Inventory: Demo Inventory
+Project: Terraform Workhsop Project
+Playbook: servicenow_incident_create.yml
+Execution environment: Default Execution Environment
+Credentials: Demo Credential | Machine
+Click “Create job template” button
+Solution 1: Run Job Template to build additional resources (CaC)
+Automation Execution → Templates → Launch Solution1 - Add Job Templates (click rocket)
+After it is finished running, you will see all the job templates from the previous exercise:
+Automation Execution → Templates
+Note: you may seem some duplicates if there was a typo in the Name of the job template
+
 
 
 > **Tip**
