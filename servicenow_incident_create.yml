@@ -9,7 +9,7 @@
       ansible.builtin.debug:
         msg: |
           ITSM Incident Summary:
-          {{ itsm_fail_message }}
+          {{ itsm_update_message }}
           See examples in comments on github: https://github.com/mkbredem/aap_tfc_workshop/blob/main/servicenow_incident_create.yml
 
 # Create a change request in ServiceNow

@@ -6,38 +6,59 @@
     - vars/main.yml
 
   tasks:
-    - name: Install httpd
-      ansible.builtin.yum:
-        name: httpd
-        state: present
+    - name: deploy web app1 tasks
+      block:
+        - name: Install httpd
+          ansible.builtin.yum:
+            name: httpd
+            state: present
+    
+        - name: Create document roots
+          ansible.builtin.file:
+            path: "/var/www/html/{{ item }}"
+            state: directory
+            owner: apache
+            group: apache
+            mode: '0755'
+          loop: "{{ sites }}"
+    
+        - name: Deploy custom index.html to each site
+          ansible.builtin.template:
+            src: templates/index.html.j2
+            dest: "/var/www/html/{{ item.name }}/index.html"
+            owner: apache
+            group: apache
+            mode: '0644'
+          loop: "{{ sites }}"
+    
+        - name: Create custom vhost config
+          ansible.builtin.template:
+            src: templates/vhost.conf.j2
+            dest: /etc/httpd/conf.d/multi-site.conf
+            owner: root
+            group: root
+            mode: '0644'
+          notify: Restart httpd
 
-    - name: Create document roots
-      ansible.builtin.file:
-        path: "/var/www/html/{{ item.name }}"
-        state: directory
-        owner: apache
-        group: apache
-        mode: '0755'
-      loop: "{{ sites }}"
+        - name: Mark deploy success for host
+          ansible.builtin.set_fact:
+            config_status: "{{ config_status | combine({ inventory_hostname: 'web_app_1 deploy succeeded at ' + ansible_date_time.iso8601 }) }}"
 
-    - name: Deploy custom index.html to each site
-      ansible.builtin.template:
-        src: templates/index.html.j2
-        dest: "/var/www/html/{{ item.name }}/index.html"
-        owner: apache
-        group: apache
-        mode: '0644'
-      loop: "{{ sites }}"
+      rescue:
+        - name: Mark deploy failure for host
+          ansible.builtin.set_fact:
+            config_status: "{{ config_status | combine({ inventory_hostname: 'web_app_1 deploy FAILED at ' + ansible_date_time.iso8601 }) }}"
 
-    - name: Create custom vhost config
-      ansible.builtin.template:
-        src: templates/vhost.conf.j2
-        dest: /etc/httpd/conf.d/multi-site.conf
-        owner: root
-        group: root
-        mode: '0644'
-      notify: Restart httpd
-
+    - name: Aggregate config status into global ITSM message
+      ansible.builtin.set_stats:
+        data:
+          itsm_update_message: |
+            {% for host, status in config_status.items() %}
+            - {{ host }}: {{ status }}
+            {% endfor %}
+        per_host: false
+      run_once: true
+      
   handlers:
     - name: Restart httpd
       ansible.builtin.service:
