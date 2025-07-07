@@ -72,7 +72,7 @@
             state: present
           loop: "{{ sites }}"
 
-        - name: Set SELinux to permissive permanently
+        - name: Set SELinux to permissive for troubleshooting
           ansible.posix.selinux:
             policy: targeted
             state: permissive
