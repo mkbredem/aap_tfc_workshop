@@ -86,7 +86,14 @@ student_account: admin</code></pre>
 * Click **Create job template** 
 * Click **Launch template** click to run the Setup JT
 
-Once it is done running, let’s see what was created:
+Once it is done running, see the following resources were created for you:
+* Go to **Automation Execution → Templates**
+![Solutions JTs](images/solution_job_templates.png)
+
+* **Solution1 - Add Job Templates:** We will be adding more job templates, to mimic a post provisioning workflow (base config -> application deployment → load balancer -> CMDB update -> ITSM tracking, etc…).  You can use this Solution1 to make sure all the Job Templates are built correctly.
+* **Solution2 - complete config and deploy workflow:** wonce the job templates are added, you will be stitching them together in a Workflow Job Template.  Again, this may take more time than the lab will allow, so you can complete the Workflow using this Solution2.
+* **Solution3 - Decommission Workflow Job Template:** This playbook adds additional job templates and completes an additional Workflow that is used to mimic the decommissioning process. Similar to Solution1 and Solution2 combined, but for the Decommissioning workflow.
+
 * Go to **Automation Execution → Templates**
 
 
