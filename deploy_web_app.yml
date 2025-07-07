@@ -49,10 +49,8 @@
           notify: Restart httpd
 
         - name: Allow Apache to listen on port 8001
-          ansible.builtin.command: semanage port -a -t http_port_t -p tcp 8001
-          args:
-            warn: false
-          ignore_errors: true
+          ansible.builtin.shell: semanage port -a -t http_port_t -p tcp 8001
+          warn: false
 
         - name: Mark deploy success for host
           ansible.builtin.set_fact:
