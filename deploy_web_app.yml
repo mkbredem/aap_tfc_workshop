@@ -48,6 +48,12 @@
             mode: '0644'
           notify: Restart httpd
 
+        - name: Allow Apache to listen on port 8001
+          ansible.builtin.command: semanage port -a -t http_port_t -p tcp 8001
+          args:
+            warn: false
+          ignore_errors: true
+
         - name: Mark deploy success for host
           ansible.builtin.set_fact:
             config_status: "{{ config_status | combine({ inventory_hostname: 'web_app_1 deploy succeeded at ' + ansible_date_time.iso8601 }) }}"
