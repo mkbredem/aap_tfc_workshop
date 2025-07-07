@@ -10,10 +10,11 @@ This workshop provides practical experience with managing inventories and creden
 3. [Add Vault Credential](#6-add-vault-credential)
 4. [Introduction to Projects](#4-introduction-to-projects)
 5. [Add "Terraform Project"](#5-add-terraform-workshop-project)
-5. [Introduction to Inventories](#1-introduction-to-inventories)
-6. [Exploring the 'Workshop Inventory'](#2-exploring-the-workshop-inventory)
-7. [Add "Mock Dynamic Inventory"](#3-add-mock-dynamic-inventory)
-8. [Conclusion](#7-conclusion)
+6. [Introduction to Inventories](#6-introduction-to-inventories)
+7. [Exploring the 'Workshop Inventory'](#7-exploring-the-workshop-inventory)
+8. [Add "Mock Dynamic Inventory"](#8-add-mock-dynamic-inventory)
+9. [Add "Mock Dynamic Inventory Source"](#9-add-mock-dynamic-inventory-source)
+10. [Conclusion](#10-conclusion)
 
 ### 1. Understanding Machine Credentials
 Machine credentials are essential for establishing secure SSH connections to managed hosts.
@@ -102,10 +103,10 @@ This exercise covers:
 
 * Click **Create project** button
 
-### 1. Introduction to Inventories
+### 6. Introduction to Inventories
 In automation controller, inventories define and organize the hosts your playbooks will target. They can be static (a fixed list of hosts) or dynamic (sourced from external systems).
 
-### 2. Exploring the _Workshop Inventory_
+### 7. Exploring the _Workshop Inventory_
 The _Workshop Inventory_ is preloaded in your lab environment, representing a static inventory configuration.
 
 - **Accessing the Inventory:** Navigate to **Automation Execution → Infrastructure → Inventories** in the web UI, and select _Workshop Inventory_.
@@ -113,7 +114,7 @@ The _Workshop Inventory_ is preloaded in your lab environment, representing a st
 
 ![Hosts](images/hosts.png)
 
-### 6. Add "Mock Dynamic Inventory"
+### 8. Add "Mock Dynamic Inventory"
 The Workshop Inventory above is pre-built, however this workshop is designed to mimic the fact that inventories will be dynamically pulled from the hyperscaler/hypervisor that terraform builds from the main.tf file.  To mimic this, we will dynamically pull the inventory from a project.
 
 In a true integration with AAP and Terraform, you will be able to dynamically pull inventories from the hypervisor and group them based on tags, which those groups would then be targeted for post-provisioning configuration.
@@ -137,7 +138,7 @@ In a true integration with AAP and Terraform, you will be able to dynamically pu
 
 * Click **Create inventory** button
 
-### 7. Add "Mock Dynamic Inventory Source"
+### 9. Add "Mock Dynamic Inventory Source"
 Now for the Dynamic Inventory Cource, that would sync after provisioning and before configuration.
 
 * Go to “Sources” (tab) of **Mock Dynamic Inventory** → Click **“Create Source”**. Fill in the form:
@@ -174,7 +175,7 @@ Now for the Dynamic Inventory Cource, that would sync after provisioning and bef
 Your Inventory Source Shoudl Look Like This
 ![Source details](images/Terraform_dynamic_inventory_source.png)
 
-### 7. Conclusion
+### 10. Conclusion
 This workshop introduces the essential concepts of inventories and credentials within Ansible Automation Controller. Mastering these components is critical for effectively managing your automation environments and ensuring secure access to your infrastructure.
 
 ---
