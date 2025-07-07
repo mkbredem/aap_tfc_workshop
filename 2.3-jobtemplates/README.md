@@ -94,8 +94,10 @@ Once it is done running, see the following resources were created for you:
 * **Solution2 - complete config and deploy workflow:** wonce the job templates are added, you will be stitching them together in a Workflow Job Template.  Again, this may take more time than the lab will allow, so you can complete the Workflow using this Solution2.
 * **Solution3 - Decommission Workflow Job Template:** This playbook adds additional job templates and completes an additional Workflow that is used to mimic the decommissioning process. Similar to Solution1 and Solution2 combined, but for the Decommissioning workflow.
 
-* Go to **Automation Execution → Templates**
+* Go to **Automation Execution → Infrastructure → Credentials**
+![AAP Credentials](images/aap_credential.png)
 
+* **AAP Credential:** this credential is used by the Solution[1:3] to authenticate into the Automation Controller API, similar to the Extra Vars you pasted into **Setup** job template in **Step 6**.
 
 > **Tip**
 >
