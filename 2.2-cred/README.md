@@ -102,6 +102,8 @@ This exercise covers:
  </table>
 
 * Click **Create project** button
+* Notice the **Last job status** of the project is **running**.  This indicates that AAP is pulling the project repo in github into it's execution environment.  Everyting covered in this workshop today is located in this project.
+* You should see the status change to **Success** after a minute or two.
 
 ### 6. Introduction to Inventories
 In automation controller, inventories define and organize the hosts your playbooks will target. They can be static (a fixed list of hosts) or dynamic (sourced from external systems).
