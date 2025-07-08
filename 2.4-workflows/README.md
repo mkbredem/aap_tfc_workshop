@@ -308,6 +308,7 @@ Optionally, if time alots, you can see what happens if a job fails.
 * Click **Save workflow job template**
 * Click **Launch template**
   * After workflow gets to the **Deploy Web App 1** node, it will fail.
+  [Deploy fail](images/deploy_fail_image.png)
   * Click on the job output to see the customize ITSM notifications to indicate job failure.  You can see the logic that drives the ITSM message in the playbook for **Deploy Web App 1** (https://github.com/mkbredem/aap_tfc_workshop/blob/main/deploy_web_app.yml)
 
 ---
