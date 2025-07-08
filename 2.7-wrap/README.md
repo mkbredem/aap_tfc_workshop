@@ -1,8 +1,5 @@
 # Workshop Exercise - Wrap up
 
-**Read this in other languages**:
-<br>![uk](../../../images/uk.png) [English](README.md),  ![japan](../../../images/japan.png)[日本語](README.ja.md), ![brazil](../../../images/brazil.png) [Portugues do Brasil](README.pt-br.md), ![france](../../../images/fr.png) [Française](README.fr.md), ![Español](../../../images/col.png) [Español](README.es.md).
-
 ## Table of Contents
 
 - [Workshop Exercise - Wrap up](#workshop-exercise---wrap-up)

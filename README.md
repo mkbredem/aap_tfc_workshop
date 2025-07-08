@@ -1,11 +1,6 @@
 # Ansible Workshop - Ansible for Red Hat Enterprise Linux
 
-**Read this in other languages**:
-<br>![uk](../../images/uk.png) [English](README.md),  ![japan](../../images/japan.png)[日本語](README.ja.md), ![brazil](../../images/brazil.png) [Portugues do Brasil](README.pt-br.md), ![france](../../images/fr.png) [Français](README.fr.md), ![Español](../../images/es.png) [Español](README.es.md).
-<br>
-
 **This is documentation for Ansible Automation Platform 2**
-
 
 If you’re new to Ansible Automation, this workshop consists of two parts: 1) starting with the basic foundamentals and 2) applying what you’ve learned to implement Ansible automation controller to your enterprise use cases. You’ll start off by writing your first Ansible playbook, work on Jinja templates, and implement higher-level Ansible roles. Next you’ll get started on automation controller, understand inventory and credential management, projects, job templates, surveys, workflows and more.
 

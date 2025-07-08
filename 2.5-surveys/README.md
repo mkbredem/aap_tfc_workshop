@@ -1,8 +1,5 @@
 # Exercise - Surveys
 
-**Read this in other languages**:
-<br>![UK](../../../images/uk.png) [English](README.md), ![Japan](../../../images/japan.png) [日本語](README.ja.md), ![Brazil](../../../images/brazil.png) [Portuguese do Brasil](README.pt-br.md), ![France](../../../images/fr.png) [Française](README.fr.md), ![Español](../../../images/col.png) [Español](README.es.md)
-
 ## Table of Contents
 
 - [Exercise - Surveys](#exercise---surveys)
