@@ -46,7 +46,7 @@ Recall, each job template is tied to a playbook, and we need to stitch together 
    </tr>
    <tr>
      <td>Name</td>
-     <td>Init and Deploy Web App 1g</td>
+     <td>Init and Deploy Web App 1</td>
    </tr>
    <tr>
      <td>Organization</td>
@@ -112,8 +112,8 @@ After successful inventory sync, we will begin applying the base config
      <td>Run on success</td>
    </tr>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
@@ -148,8 +148,8 @@ After successful base config, we will begin application deployment
      <td>Run on success</td>
    </tr>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
@@ -182,8 +182,8 @@ After successful app deploy, we will add the hosts to a load balancer
      <td>Run on success</td>
    <tr>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
@@ -217,8 +217,8 @@ With Workflows, you can run to jobs in parallel.  While we are adding the server
      <td>Run on success</td>
    <tr>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
@@ -257,8 +257,8 @@ With Workflows, you can take alternative paths if a job fails.  This is importan
      <td>Run on fail</td>
    <tr>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
