@@ -301,28 +301,14 @@ You can also see observe the jobs spawning as they workflow progresses.
   * This means that all jobs and automation are centrally logged for later troubleshooting and auditing purposes.
 
 ### Fail the Workflow
----
+Optionally, if time alots, you can see what happens if a job fails.
 
-### Launch workflow
-
-![launch_template](images/launch_template.png)
-
-Once the workflow completes, verify the result.
-
-Go to Automation Execution → Infrastructure → Inventories → Workshop Inventory
-
-In the **Automation Execution → Infrastructure → Inventories → Workshop Inventory, select the Hosts tab and select node1 and click Run Command
-
-Within the Details window, select Module command, in Arguments type `curl http://node1/nodejs` and click Next.
-
-Within the Execution Environment window, select Default execution environment and click Next.
-
-Within the Credential window, select Workshop Credentials and click Next.
-
-Review your inputs and click Finish.
-
-Verify that the output result shows `Hello World`
-
+* Goto **Automation Execution → Templates** Edit **Init and Deploy Web App 1** (pencil icon)
+* Change the ```deploy_fail: false``` to ```deploy_fail: true```
+* Click **Save workflow job template**
+* Click **Launch template**
+  * After workflow gets to the **Deploy Web App 1** node, it will fail.
+  * Click on the job output to see the customize ITSM notifications to indicate job failure.  You can see the logic that drives the ITSM message in the playbook for **Deploy Web App 1** (https://github.com/mkbredem/aap_tfc_workshop/blob/main/deploy_web_app.yml)
 
 ---
 **Navigation**
