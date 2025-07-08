@@ -1,6 +1,3 @@
-Listen 8001
-Listen 8002
-
 {% for site in sites %}
 <VirtualHost *:{{ site.port }}>
     DocumentRoot /var/www/html/{{ site.name }}
