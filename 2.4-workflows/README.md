@@ -301,7 +301,7 @@ You can also observe the jobs spawning as they workflow progresses.
   * This means that all jobs and automation are centrally logged for later troubleshooting and auditing purposes.
 
 ### Fail the Workflow
-Optionally, if time alots, you can see what happens if a job fails.
+Optionally, if time allows, you can see what happens if a job fails.
 
 * Goto **Automation Execution → Templates** Edit **Init and Deploy Web App 1** (pencil icon)
 * Change the ```deploy_fail: false``` to ```deploy_fail: true```
