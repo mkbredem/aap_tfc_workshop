@@ -6,10 +6,7 @@
     - name: Add IP addresses to load balancer
       ansible.builtin.debug:
         msg: |
-          Adding the hosts to the load balancer:
-          {% for ip in web_server_ips %}
-          - {{ ip }}
-          {% endfor %}
-      loop: "{{ groups['web'] }}"
+          Adding the {{ item }} host to the load balancer
+      loop: "{{ vm_names }}"
       loop_control:
         label: "{{ item }}"

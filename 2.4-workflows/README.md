@@ -46,7 +46,7 @@ Recall, each job template is tied to a playbook, and we need to stitch together 
    </tr>
    <tr>
      <td>Name</td>
-     <td>Init and Deploy Web App 1</td>
+     <td>Init and Deploy Web App 1 - practice</td>
    </tr>
    <tr>
      <td>Organization</td>

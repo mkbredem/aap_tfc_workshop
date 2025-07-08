@@ -46,7 +46,6 @@
             owner: root
             group: root
             mode: '0644'
-          notify: Restart httpd
 
         - name: Ensure Apache listens on custom ports
           ansible.builtin.lineinfile:
