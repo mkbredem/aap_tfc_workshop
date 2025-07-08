@@ -95,13 +95,14 @@ student_account: admin</code></pre>
 
 Since this might take some time, have a closer look at all the details provided:
 
-* All details of the job template like inventory, project, credentials and playbook are shown.
+* Goto **Details** (tab)
+  * All details of the job template like inventory, project, credentials and playbook are shown.
 
-* Additionally, the actual revision of the playbook is recorded here - this makes it easier to analyse job runs later on.
+  * Additionally, the actual revision of the playbook is recorded here - this makes it easier to analyse job runs later on.
 
-* Also the time of execution with start and end time is recorded, giving you an idea of how long a job execution actually was.
+  * Also the time of execution with start and end time is recorded, giving you an idea of how long a job execution actually was.
 
-* Selecting **Output** shows the output of the running playbook. Click on a node underneath a task and see that detailed information are provided for each task of each node.
+  * Selecting **Output** shows the output of the running playbook. Click on a node underneath a task and see that detailed information are provided for each task of each node.
 
 Once it is done running, see the following resources were created for you:
 * Go to **Automation Execution → Templates**
