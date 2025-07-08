@@ -295,7 +295,7 @@ If you are in the Workflow Visualizer, close it (click the “x” in the top ri
 * Click on the **Legend** button on the bottom left of the WFJT visualizer to see more details on what the various icons/symbols in the workflow mean.
 * You can also click on various Job Templates that have completed, or are active, and see the playbook output and job details.
 
-You can also see observe the jobs spawning as they workflow progresses. 
+You can also observe the jobs spawning as they workflow progresses. 
 * Goto **Automation Execution → Jobs**
   * Here you will see the **Init and Deploy Web App 1** workflow job template running, as well as other playbooks that are currently active in the worfklow as they are executed from the WFJT. 
   * This means that all jobs and automation are centrally logged for later troubleshooting and auditing purposes.
