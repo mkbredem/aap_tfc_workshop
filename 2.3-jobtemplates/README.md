@@ -173,7 +173,6 @@ The logical place to start would be to perform a base configuration of the newly
 
 * Click **Create job template** 
 
-
 ### 2. Create CR
 In order to track resources being created in ITSM, we need to create a change request:
 
@@ -210,7 +209,10 @@ In order to track resources being created in ITSM, we need to create a change re
    </tr>
    <tr>
      <td>Credentials</td>
-     <td>Demo Credential | Machine</td>
+     <td>
+       Demo Credential | Machine<br>
+       vault | Vault<br>
+     </td>
    </tr> 
  </table>
 
