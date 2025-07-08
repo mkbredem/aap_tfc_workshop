@@ -102,6 +102,6 @@ For more information on Ansible Automation Platform and its latest features, exp
 ---
 **Navigation**
 <br>
-[Previous Exercise](../1.7-role) - [Next Exercise](../2.2-cred)
+[Previous Exercise](../README.md) - [Next Exercise](../2.2-cred)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-2---ansible-tower-exercises)
