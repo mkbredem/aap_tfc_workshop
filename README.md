@@ -21,12 +21,8 @@ After finishing this lab you are ready to start using Ansible for your automatio
 
 The exercises are self explanatory and guide the participants through the entire lab. All concepts are explained when they are introduced.
 
-There is an optional presentation available to support the workshops and explain Automation, the basics of Ansible and the topics of the exercises in more detail:
-[Ansible RHEL Automation](../../decks/ansible_rhel.pdf)
-[Google source - Red Hat only](https://docs.google.com/presentation/d/13PxRxjXem76R7ypY1eyuBlCt0iD_epPtohTMcYsZXMw/edit?usp=sharing)
-
 Also have a look at our Ansible Best Practices Deck:
-[Ansible Best Practices](../../decks/ansible_best_practices.pdf)
+[Ansible Best Practices](./decks/ansible_best_practices.pdf)
 
 ## Time planning
 
@@ -36,7 +32,7 @@ Having said that, the exercises themselves should take roughly 4-5 hours. The fi
 
 ## Lab Diagram
 
-![ansible rhel lab diagram](../../images/rhel_lab_diagram.png)
+![ansible rhel lab diagram](./images/rhel_lab_diagram.png)
 
 ## Section 1 - Command-line Ansible Exercises
 
@@ -60,4 +56,4 @@ Having said that, the exercises themselves should take roughly 4-5 hours. The fi
 * [Exercise 2.7 - Wrap up](2.7-wrap)
 
 ---
-![Red Hat Ansible Automation](../../images/rh-ansible-automation-platform.png)
+![Red Hat Ansible Automation](./images/rh-ansible-automation-platform.png)
