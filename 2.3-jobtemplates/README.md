@@ -38,10 +38,10 @@ This exercise covers:
 ## Guide
 
 ### Add "Setup Job Template"
-The first template we will add runs a playbook that actually automates AAP itself using configuration as code.  This job template will build out other resources (credentials, inventories, and job templates) that can optionally be used needed for the rest of the workshop, as well as provide solutions or shortcuts.  
+The first template we will add, runs a playbook that automates AAP itself using configuration as code.  This job template will build out other resources (credentials, inventories, and job templates) that will be needed for the rest of the workshop (solutions and shortcuts).  
 
 #### Create “Setup” job template:
-* Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
+* Go to **Automation Execution → Templates** click **Create Template** select **Create job template** . Fill in the form:
 
  <table>
    <tr>
@@ -51,10 +51,6 @@ The first template we will add runs a playbook that actually automates AAP itsel
    <tr>
      <td>Name</td>
      <td>Setup</td>
-   </tr>
-   <tr>
-     <td>Organization</td>
-     <td>Default</td>
    </tr>
    <tr>
      <td>Project</td>
@@ -78,7 +74,10 @@ The first template we will add runs a playbook that actually automates AAP itsel
    </tr>
    <tr>
      <td>Credentials</td>
-     <td>Demo Credential | Vault</td>
+     <td>
+       Demo Credential | Machine<br>
+       vault | Vault<br>
+     </td>
    </tr>
    <tr>
      <td>Extra Vars</td>

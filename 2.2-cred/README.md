@@ -35,6 +35,7 @@ Automation controller supports over 30 different credential types for various au
 These credential types enhance the flexibility and security of your automation efforts.
 
 ### 3. Add Vault Credential
+Ansible-Core has a command called ansible-vault.  It allows you to encrypt files from the CLI that contain sensitive information that you don't want to have published/visible in your git based repo.  There is such a file in the Terraform Workshop Project.  When the project is sync'd with AAP, this file will be decrypted using this credential.  If you don't add this credential to the Job Templates that pull from this project, they will error out before execution.
 
 * Go to **Automation Execution → Infrastructure → Credentials** click the **Create Credential** button. Fill in the form:
 
@@ -153,10 +154,6 @@ Now for the dynamic inventory source that would sync after provisioning and befo
    <tr>
      <td>Name</td>
      <td>Mock Dynamic Inventory Source</td>
-   </tr>
-   <tr>
-     <td>Organization</td>
-     <td>Default</td>
    </tr>
    <tr>
      <td>Source</td>
