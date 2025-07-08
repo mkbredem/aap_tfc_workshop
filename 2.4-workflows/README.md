@@ -288,9 +288,19 @@ We have now implemented the core features of the workflow, to finish the workflo
 * After adding hosts to LB, update CR
 * After creating incident due to Web App 1 Deploy failure, we update the CR with notes about the failure as well.
 
+### Run the Workflow
 Once you have finished reviewing the workload, go ahead and launch the workflow
-If you are in the Workflow Visualizer, close it (click the “x” in the top right corner)
+If you are in the Workflow Visualizer, close it (click the “x” in the top right corner), then you will see the **Launch Template** button (top right)
+* As the workflow job template executes, you will see blue arrow animation cycling to indicate which Jobs are active.  Then you will see a green check or a red exclamation to indicate job success or job fail, which then drives which workflow path is taken.
+* Click on the **Legend** button on the bottom left of the WFJT visualizer to see more details on what the various icons/symbols in the workflow mean.
+* You can also click on various Job Templates that have completed, or are active, and see the playbook output and job details.
 
+You can also see observe the jobs spawning as they workflow progresses. 
+* Goto **Automation Execution → Jobs**
+  * Here you will see the **Init and Deploy Web App 1** workflow job template running, as well as other playbooks that are currently active in the worfklow as they are executed from the WFJT. 
+  * This means that all jobs and automation are centrally logged for later troubleshooting and auditing purposes.
+
+### Fail the Workflow
 ---
 
 ### Launch workflow

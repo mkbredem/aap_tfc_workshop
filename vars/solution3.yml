@@ -268,20 +268,20 @@ controller_workflows:
     webhook_service: ""
     extra_vars:
       catalogue_create_message: Decommsioning servers before terraform destroy. \n\nIn this mock terraform demo, remove_vms are passed via a survey. \n\nIn a live AAP - Terraform integration, the remove_vms array of hosts \nwould be derived from a diff in the TFC plan results indicating \nresources to be destroyed
-    survey_enabled: true
-    survey_spec:
-      name: "gather vm names"
-      spec:
-        - max: 1024
-          min: 0
-          type: multiselect
-          choices:
-            - "node1.example.com"
-            - "node2.example.com"
-            - "node3.example.com"
-          required: True
-          variable: vm_names
-          new_question: False
-          question_name: "Which VMs would you like to remove"
-      description: ""
+    survey_enabled: false
+#    survey_spec:
+#      name: "gather vm names"
+#      spec:
+#        - max: 1024
+#          min: 0
+#          type: multiselect
+#          choices:
+#            - "node1.example.com"
+#            - "node2.example.com"
+#            - "node3.example.com"
+#          required: True
+#          variable: vm_names
+#          new_question: False
+#          question_name: "Which VMs would you like to remove"
+#      description: ""
 ...

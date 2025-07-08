@@ -18,18 +18,16 @@ Demonstrate the use of the Ansible Automation Controller [survey feature](https:
 
 ## Guide
 
-You've installed Apache on all hosts in the job you just ran. Now, let's build on this:
+You've already provisioned and configured new resources, but what about decommisioning:
 
-- Use a proper role that includes a Jinja2 template to deploy an `index.html` file.
-- Create a job **Template** with a survey to collect values for the `index.html` template.
-- Launch the job **Template**.
-
-Additionally, the role will ensure that the Apache configuration is set up correctly for this exercise.
+In this exercise, we will:
+  * launch Solution 3 (we've already experienced ease of stitching together jobs to make a workflow)
+  * Edit the resulting Workflow by adding a survey
 
 > **Tip**
 > The survey feature provides a simple query for data but does not support dynamic data queries, nested menus, or four-eye principles.
 
-### The Apache-Configuration Role
+### Launch "
 
 The playbook and role with the Jinja2 template are located in the GitHub repository [https://github.com/ansible/workshop-examples](https://github.com/ansible/workshop-examples) in the `rhel/apache` directory.
 
