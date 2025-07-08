@@ -91,7 +91,7 @@ Sync your inventory first to ensure the newly provisioned servers are in your in
 ### 3. Apply Base Config
 After successful inventory sync, we will begin applying the base config
 
-* Click **<3 dots>** (right of Sync Inventory)
+* Click **<3 dots>** (right of **Sync Inventory**)
 * Select **+Add step and link**. Fill in the form as follows:
 
  <table>
@@ -127,7 +127,7 @@ After successful inventory sync, we will begin applying the base config
 
 ### 4. Deploy Web App
 After successful base config, we will begin application deployment
-* Click **<3 dots>** (right of Sync Inventory)
+* Click **<3 dots>** (right of **Apply Base Config**)
 * Select **+Add step and link**. Fill in the form as follows:
 
  <table>
@@ -162,7 +162,7 @@ After successful base config, we will begin application deployment
 
 ### 5. Add Hosts to Load Balancer
 After successful app deploy, we will add the hosts to a load balancer
-* Click **<3 dots>** (right of Sync Inventory)
+* Click **<3 dots>** (right of **Deploy Web App 1**)
 * Select **+Add step and link**. Fill in the form as follows:
 
  <table>
