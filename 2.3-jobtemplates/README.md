@@ -6,13 +6,13 @@
 * [Guide](#guide)
 * [Setup Workshop](#add-setup-job-template)
 * [Add Workshop Job Templates](#add-all-the-job-templates-needed-for-post-provisioning-configuration)
-  * [Base Config](#base-config)
-  * [Create CR](#create-cr)
-  * [Deploy Application](#deploy-application)
-  * [Add Hosts to Load Balancer](#add-hosts-to-load-balancer)
-  * [Add hosts to CMDB](#add-hosts-to-cmdb)
-  * [Update CR](#update-cr)
-  * [Create Incident](#create-incident)
+  * [1. Base Config](#1-base-config)
+  * [2. Create CR](#2-create-cr)
+  * [3. Deploy Application](#3-deploy-application)
+  * [4.Add Hosts to Load Balancer](#4-add-hosts-to-load-balancer)
+  * [5. Add hosts to CMDB](#5-add-hosts-to-cmdb)
+  * [6. Update CR](#6-update-cr)
+  * [7. Create Incident](#7-create-incident)
 * [Solution: Add Workshop Job Templates](#solution-1-run-job-template-to-build-additional-resources-cac)
 * [Create a Job Template and Run a Job](#create-a-job-template-and-run-a-job)
 * [Challenge Lab: Check the Result](#challenge-lab-check-the-result)
@@ -94,6 +94,16 @@ student_account: admin</code></pre>
 * Click **Create job template** 
 * Click **Launch template** click to run the Setup JT
 
+Since this might take some time, have a closer look at all the details provided:
+
+* All details of the job template like inventory, project, credentials and playbook are shown.
+
+* Additionally, the actual revision of the playbook is recorded here - this makes it easier to analyse job runs later on.
+
+* Also the time of execution with start and end time is recorded, giving you an idea of how long a job execution actually was.
+
+* Selecting **Output** shows the output of the running playbook. Click on a node underneath a task and see that detailed information are provided for each task of each node.
+
 Once it is done running, see the following resources were created for you:
 * Go to **Automation Execution → Templates**
 ![Solutions JTs](images/solution_job_templates.png)
@@ -116,7 +126,7 @@ Once it is done running, see the following resources were created for you:
 >
 > if at any point you’ve had enough practice building job templates, or if you get the idea, you can skipp to [Solution1](#solution-1-run-job-template-to-build-additional-resources-cac) to have ansible create all these jobs templates for you.
 
-### Base Config
+### 1. Base Config
 The logical place to start would be to perform a base configuration of the newly provisioned servers.  This may include things like hardening configurations, installing and activating security agents, and other compliance requirements needed on all servers:
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -162,7 +172,7 @@ The logical place to start would be to perform a base configuration of the newly
 * Click **Create job template** 
 
 
-### Create CR
+### 2. Create CR
 In order to track resources being created in ITSM, we need to create a change request:
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -204,7 +214,7 @@ In order to track resources being created in ITSM, we need to create a change re
 
 * Click **Create job template** 
 
-### Deploy Application
+### 3. Deploy Application
 Upon successful completion of the Common Config, we will need to run additional configurations in order to deploy the application that will run on the server.
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -249,7 +259,7 @@ Upon successful completion of the Common Config, we will need to run additional 
 
 * Click **Create job template** 
 
-### Add Hosts to Load Balancer
+### 4. Add Hosts to Load Balancer
 Then we will need to add the host(s) to a load balancer.  Since this is targeting a device external to the inventory we are configuring directly, we will need to create a separate job template for this piece as well.
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -291,7 +301,7 @@ Then we will need to add the host(s) to a load balancer.  Since this is targetin
 
 * Click **Create job template** 
 
-### Add hosts to CMDB
+### 5. Add hosts to CMDB
 Now that the server is configured and the app deployoed, we will need to add it to our CMDB database, our single source of truth.
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -333,7 +343,7 @@ Now that the server is configured and the app deployoed, we will need to add it 
 
 * Click **Create job template**
 
-### Update CR
+### 6. Update CR
 We will need to periodically update the change request we created earlier with notes to indicate progress (i.e. common config complete, app deploy complete, or even app deploy fail, etc…).
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -375,7 +385,7 @@ We will need to periodically update the change request we created earlier with n
 
 * Click **Create job template**
 
-### Create Incident
+### 7. Create Incident
 What if one of the configuration, deploy, adding to loadbalancer job fail?  We will need to create an incident for investigation and/or remediation, to finish and test the configurations.
 
 * Go to **Automation Execution → Templates** click the **Create Template** button. Fill in the form:
@@ -428,124 +438,6 @@ Goto **Automation Execution → Templates** Launch **Solution1 - Add Job Templat
 >
 >  You may seem some duplicates if there was a typo in the Name of the job template.  You can delete the one(s) that had(have) a typo.
 ![Solution 1 Duplicates JTs](images/solution_duplicates.png)
-
-### Create a Job Template and Run a Job
-
-A job template allows you to run an automation job. In order to run any type of automation, a job template must be created. A job template consists of knowning the following information:
-
-* **Inventory**: On what hosts should the job run?
-
-* **Credentials** What credentials are needed to log into the hosts?
-
-* **Project**: Where is the playbook?
-
-* **Playbook**: What playbook to use?
-
-To create a Job Template, go to the **Automation Execution -> Templates** view,click the **Create template** button and choose **Create job template**.
-
-> **Tip**
->
-> Remember that you can often click on the question mark with a circle to get more details about the field.
-
- <table>
-   <tr>
-     <th>Parameter</th>
-     <th>Value</th>
-   </tr>
-   <tr>
-     <td>Name</td>
-     <td>Install Apache</td>
-   </tr>
-   <tr>
-     <td>Job Type</td>
-     <td>Run</td>
-   </tr>
-   <tr>
-     <td>Inventory</td>
-     <td>Workshop Inventory</td>
-   </tr>
-   <tr>
-     <td>Project</td>
-     <td>Workshop Project</td>
-   </tr>
-   <tr>
-     <td>Playbook</td>
-     <td><code>rhel/apache/apache_install.yml</code></td>
-   </tr>
-   <tr>
-     <td>Execution Environment</td>
-     <td>Default execution environment</td>
-   </tr>
-   <tr>
-     <td>Credentials</td>
-     <td>Workshop Credential</td>
-   </tr>
-   <tr>
-     <td>Limit</td>
-     <td>web</td>
-   </tr>
-   <tr>
-     <td>Options</td>
-     <td>tasks need to run as root so check **Privilege Escalation**</td>
-   </tr>
- </table>
-
-* Click **Create job template**
-
-You can start the job by directly clicking the blue **Launch template** button, or by clicking on the rocket in the Job Templates overview. After launching the Job Template, you are automatically brought to the job overview where you can follow the playbook execution in real time.
-
-Template Details
-![template details](images/template_detail.png)
-
-Job Run
-![job_run](images/job_run.png)
-
-Since this might take some time, have a closer look at all the details provided:
-
-* All details of the job template like inventory, project, credentials and playbook are shown.
-
-* Additionally, the actual revision of the playbook is recorded here - this makes it easier to analyse job runs later on.
-
-* Also the time of execution with start and end time is recorded, giving you an idea of how long a job execution actually was.
-
-* Selecting **Output** shows the output of the running playbook. Click on a node underneath a task and see that detailed information are provided for each task of each node.
-
-After the Job has finished go to the main **Jobs** view: All jobs are listed here, you should see directly before the Playbook run an Source Control Update was started. This is the Git update we configured for the **Project** on launch\!
-
-### Solution 1
-
-Time for a little challenge:
-
-* Use an ad hoc command on both hosts to make sure Apache has been installed and is running.
-
-You have already been through all the steps needed, so try this for yourself.
-
-> **Tip**
->
-> What about `systemctl status httpd`?
-
-
-> **Warning**
->
-> **Solution Below**
-
-* Go to **Automation Execution → Infrastructure →  Inventories** → **Workshop Inventory**
-
-* In the **Automation Execution → Infrastructure → Inventories → Workshop Inventory**, select the **Hosts** tab and select `node1`, `node2`, `node3` and click **Run Command**
-
-Within the **Details** window, select **Module** `command`, in **Arguments** type `systemctl status httpd` and click **Next**.
-
-Within the **Execution Environment** window, select **Default execution environment** and click **Next**.
-
-Within the **Credential** window, select **Workshop Credentials** and click **Next**.
-
-Review your inputs and click **Finish**.
-
-Verify that the output result is as expected.
-
-> **Tip**
->
-> The output of the results is displayed once the command has completed.
 
 ---
 **Navigation**
