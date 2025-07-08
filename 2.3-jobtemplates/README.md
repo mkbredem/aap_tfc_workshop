@@ -122,7 +122,7 @@ The next 7 tasks is simply building out more job templates that we will ultimate
 
 > **Tip**
 >
-> Copy and paste the Name value into the Job Templates, so if a Solution is used, the job templates you created will simply be updated or skipped if no changes are identified, otherwise, you will have similarly named redundant job templates when a solution runs.
+> Copy and paste the Name value into the Job Templates, so if a Solution is used, the job templates you created will simply be updated or skipped if no changes are identified, otherwise, you will have similarly named, redundant, job templates when a solution runs.
 
 > **Tip**
 >
