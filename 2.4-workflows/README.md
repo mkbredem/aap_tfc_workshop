@@ -76,8 +76,8 @@ Sync your inventory first to ensure the newly provisioned servers are in your in
      <td>Inventory Source</td>
      <td>Mock Dynamic Inventory Source</td>
    <tr>
-     <th>Covergence</th>
-     <th>Any</th>
+     <td>Covergence</td>
+     <td>Any</td>
    </tr>
    <tr>
      <td>Node Alias</td>
