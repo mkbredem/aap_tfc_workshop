@@ -6,11 +6,10 @@
   - [Table of Contents](#table-of-contents)
   - [Objective](#objective)
   - [Guide](#guide)
-    - [The Apache-Configuration Role](#the-apache-configuration-role)
-    - [Create a Template with a Survey](#create-a-template-with-a-survey)
-      - [Create Template](#create-template)
-      - [Add the Survey](#add-the-survey)
-    - [Launch the Template](#launch-the-template)
+    - [Launch "Solution3 - Decommission Workflow Job Template](#launch-solution3---decommission-workflow-job-template)
+    - [Add a Survey to "Decommission Server Before Destroy" WFJT](#add-a-survey-to-decommission-server-before-destroy-wfjt)
+    - [Create a survey for "Decommission Server Before Destroy" WFJT](#create-a-survey-for-decommission-server-before-destroy-wfjt)
+    - [Launch "Decommision Server Before Destroy"](#launch-decommision-server-before-destroy)
 
 ## Objective
 
