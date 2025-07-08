@@ -36,20 +36,15 @@ This time we will let ansible do most of the heavy lifting, so lets launch Solut
 >
 > Observer the resources created by Solution 3 JT:
 ![Solution 3 Resources](images/solution3_resources.png)
-#### D1 - Remove Hosts from LB
-Working backwards from the provisioning workflow, D1 removes the hosts from the load balancer
+* **D1 - Remove Hosts from LB:** Working backwards from the provisioning workflow, D1 removes the hosts from the load balancer
 
-#### D2 - Remove Hosts from Satellite or Active Directory
-Depending on whether the OS is RHEL or Windows, you can remove records from Red Hat Satellite or Windows Active Directory (or any other tools used to manage your infrastructure)
+* **D2 - Remove Hosts from Satellite or Active Directory:** Depending on whether the OS is RHEL or Windows, you can remove records from Red Hat Satellite or Windows Active Directory (or any other tools used to manage your infrastructure)
 
-#### D3 - Remove CMDB Records
-If you have a single source of truth for your infrastructure, you will need to update the record to indicate that the server has been decommisioned.
+* **D3 - Remove CMDB Records:** If you have a single source of truth for your infrastructure, you will need to update the record to indicate that the server has been decommisioned.
 
-#### D4 - Soft Delete
-Finally, you can remove the server from AAP itself to free up an AAP managed node entitlement (If indeed, the server will no longer need to be managed by AAP).
+* **D4 - Soft Delete:** Finally, you can remove the server from AAP itself to free up an AAP managed node entitlement (If indeed, the server will no longer need to be managed by AAP).
 
-#### Decommission Server Before Destroy
-And finally, the workflow that stitches the jobs above along with other jobs for ITSM tracking (i.e. creating CR, updating CR, creating Incidents upone failure, etc...)
+* **Decommission Server Before Destroy:** And finally, the workflow that stitches the jobs above along with other jobs for ITSM tracking (i.e. creating CR, updating CR, creating Incidents upone failure, etc...)
 
 ### Add a Survey to "Decommission Server Before Destroy" WFJT
 Now that all the resources are present to decommission the server, we need a way to know which servers to decommission. In Terraform + AAP integrated situation, Terraform would make an API call to AAP's restAPI and AAP would gather gather the diff between plan and actual resources that are provisioned.  If there are servers that are "planned" to be destroyed, then this would be passed to our **Decommission Server Before Destroy** WFJT.  
