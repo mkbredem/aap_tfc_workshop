@@ -143,10 +143,6 @@ The logical place to start would be to perform a base configuration of the newly
      <td>3 - Apply Base Config</td>
    </tr>
    <tr>
-     <td>Organization</td>
-     <td>Default</td>
-   </tr>
-   <tr>
      <td>Inventory</td>
      <td>Mock Dynamic Inventory</td>
    </tr>
