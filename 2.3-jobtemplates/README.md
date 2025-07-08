@@ -118,7 +118,7 @@ Once it is done running, see the following resources were created for you:
 * **AAP Credential:** this credential is used by the **Solution1, 2, and 3** job templates above to authenticate into the Automation Controller API, similar to the Extra Vars you pasted into the **Setup** job template you just launched.
 
 ## Add all the job templates needed for post provisioning configuration
-The next 7 tasks is simply building out more job templates that we will ultimately be stitching together into a workflow job template.  Please read the tips below before you begin building.
+The next 7 tasks are simply building out more job templates that we will ultimately be stitching together into a workflow job template.  Please read the tips below before you begin building.
 
 > **Tip**
 >
