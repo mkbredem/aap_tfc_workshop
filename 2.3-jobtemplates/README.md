@@ -115,9 +115,11 @@ Once it is done running, see the following resources were created for you:
 * Go to **Automation Execution → Infrastructure → Credentials**
 ![AAP Credentials](images/aap_credential.png)
 
-* **AAP Credential:** this credential is used by the Solution[1:3] to authenticate into the Automation Controller API, similar to the Extra Vars you pasted into **Setup** job template in **Step 6**.
+* **AAP Credential:** this credential is used by the Solution[1:3] to authenticate into the Automation Controller API, similar to the Extra Vars you pasted into the **Setup** job template.
 
 ## Add all the job templates needed for post provisioning configuration
+The next 7 tasks is simply building out more job templates that we will ultimately be stitching together into a workflow job template.  Please read the tips below before you begin building.
+
 > **Tip**
 >
 > Copy and paste the Name value into the Job Templates, so if a Solution is used, the job templates you created will simply be updated or skipped if no changes are identified, otherwise, you will have similarly named redundant job templates when a solution runs.
