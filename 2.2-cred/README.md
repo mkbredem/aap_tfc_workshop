@@ -172,7 +172,9 @@ Now for the dynamic inventory source that would sync after provisioning and befo
 
 * Click **Create source** button
 
-Your Inventory Source Shoudl Look Like This
+> **Tip**
+>
+> Your Inventory Source Shoudl Look Like This
 ![Source details](images/Terraform_dynamic_inventory_source.png)
 
 ### 10. Conclusion
