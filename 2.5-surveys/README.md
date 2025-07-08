@@ -35,7 +35,7 @@ This time we will let ansible do most of the heavy lifting, so lets launch Solut
 > **Tip**
 >
 > Observer the resources created by Solution 3 JT:
-[Solution 3 Resources](images/solution3_resources.png)
+![Solution 3 Resources](images/solution3_resources.png)
 #### D1 - Remove Hosts from LB
 Working backwards from the provisioning workflow, D1 removes the hosts from the load balancer
 
