@@ -97,7 +97,7 @@ You should still be in the **Decommision Server Before Destroy** WFJT, so you ca
 * Click **Finish**
 > **Tip**
 >
-> [Node selection](images/survey_node_selection.png)
+> ![Node selection](images/survey_node_selection.png)
 
 ---
 **Navigation**
