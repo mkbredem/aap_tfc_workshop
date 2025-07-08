@@ -27,104 +27,83 @@ In this exercise, we will:
 > **Tip**
 > The survey feature provides a simple query for data but does not support dynamic data queries, nested menus, or four-eye principles.
 
-### Launch "
+### Launch "Solution3 - Decommission Workflow Job Template"
+This time we will let ansible do most of the heavy lifting, so lets launch Solution 3.
 
-The playbook and role with the Jinja2 template are located in the GitHub repository [https://github.com/ansible/workshop-examples](https://github.com/ansible/workshop-examples) in the `rhel/apache` directory.
+* Goto **Automation Execution → Templates** and launch  **Solution3 - Decommission Workflow Job Template**
+* Once it is done running, Goto **Automation Execution → Templates** 
+> **Tip**
+>
+> Observer the resources created by Solution 3 JT:
+[Solution 3 Resources](images/solution3_resources.png)
+#### D1 - Remove Hosts from LB
+Working backwards from the provisioning workflow, D1 removes the hosts from the load balancer
 
-- Have a look at the playbook `apache_role_install.yml`, which references the role.
-- The role is located in the `roles/role_apache` subdirectory.
-- Inside the role, note the two variables in the `templates/index.html.j2` template file marked by `{{…​}}`.
-- The `tasks/main.yml` file deploys the template.
+#### D2 - Remove Hosts from Satellite or Active Directory
+Depending on whether the OS is RHEL or Windows, you can remove records from Red Hat Satellite or Windows Active Directory (or any other tools used to manage your infrastructure)
 
-The playbook creates a file (**dest**) on the managed hosts from the template (**src**).
+#### D3 - Remove CMDB Records
+If you have a single source of truth for your infrastructure, you will need to update the record to indicate that the server has been decommisioned.
 
-Because the playbook and role are located in the same GitHub repo as the `apache_install.yml` playbook, you don't need to configure a new project for this exercise.
+#### D4 - Soft Delete
+Finally, you can remove the server from AAP itself to free up an AAP managed node entitlement (If indeed, the server will no longer need to be managed by AAP).
 
+#### Decommission Server Before Destroy
+And finally, the workflow that stitches the jobs above along with other jobs for ITSM tracking (i.e. creating CR, updating CR, creating Incidents upone failure, etc...)
 
-### Create a Template with a Survey
+### Add a Survey to "Decommission Server Before Destroy" WFJT
+Now that all the resources are present to decommission the server, we need a way to know which servers to decommission. In Terraform + AAP integrated situation, Terraform would make an API call to AAP's restAPI and AAP would gather gather the diff between plan and actual resources that are provisioned.  If there are servers that are "planned" to be destroyed, then this would be passed to our **Decommission Server Before Destroy** WFJT.  
 
-Now, let's create a new Template that includes a survey.
+Since we don't have an integration for this lab, we will use a survey to define which servers are to be destroyed.
 
-#### Create Template
+### Create a survey for "Decommission Server Before Destroy" WFJT
 
-1. Go to **Automation Execution → Templates**, click the **Create template** button, and choose **Create job template**.
+* Goto **Automation Execution → Templates** Click the link for **Decommission Server Before Destroy**
+* Select the **Survey** tab at the top
+* Click **Create Survey Question** Fill out the form as follows:
 
-2. Fill out the following details:
+ <table>
+   <tr>
+     <th>Parameter</th>
+     <th>Value</th>
+   </tr>
+   <tr>
+     <td>Question</td>
+     <td>Which servers would you like to destroy?</td>
+   </tr>
+   <tr>
+     <td>Answer variable name</td>
+     <td>vm_names</td>
+   <tr>
+     <td>Answer type</td>
+     <td>Multiple Choice (multiple select)</td>
+   <tr>
+   <tr>
+     <td>Required</td>
+     <td>Checked</td>
+   </tr>
+   <tr>
+     <td>Multiple Choice Options</td>
+     <td>
+       node1.example.com (press enter)<br>
+       node2.example.com (press enter)<br>
+       node3.example.com (press enter)<br>
+     </td>
+   </tr>
+ </table>
 
-| Parameter                  | Value                           |
-|-----------------------------|---------------------------------|
-| Name                        | Create index.html               |
-| Job Type                    | Run                             |
-| Inventory                   | Workshop Inventory              |
-| Project                     | Workshop Project                |
-| Playbook                    | `rhel/apache/apache_role_install.yml` |
-| Execution Environment        | Default execution environment   |
-| Credentials                 | Workshop Credential             |
-| Limit                       | web                             |
-| Options                     | Privilege Escalation            |
+* Click **Create Survey Question**
+* Toggle on **Survey disabled** (will then show **Survey enabled**)
 
-3. Click **Create job template**.
+### Launch "Decommision Server Before Destroy"
+You should still be in the **Decommision Server Before Destroy** WFJT, so you can just click **Launch Template**
 
-![template details](images/template_details.png)
-
-> **Warning**
-> **Do not run the template yet!**
-
-#### Add the Survey
-
-1. In the Template, click the **Survey** tab, then click **Create survey question**.
-2. Fill out the following for the first survey question:
-
-| Parameter                  | Value           |
-|-----------------------------|-----------------|
-| Question                    | First Line      |
-| Answer Variable Name        | first_line      |
-| Answer Type                 | Text            |
-
-![Survey Q1](images/survey_q1.png)
-
-3. Click **Create survey question**.
-4. Click **Create survey question** to create a second survey question:
-
-| Parameter                  | Value           |
-|-----------------------------|-----------------|
-| Question                    | Second Line     |
-| Answer Variable Name        | second_line     |
-| Answer Type                 | Text            |
-
-![Survey Q2](images/survey_q2.png)
-
-5. Click **Create survey question**.
-6. Enable the survey by toggling the **Survey disabled** button to the on positon.
-
-### Launch the Template
-
-Now, launch the **Create index.html** job template by clicking the **Launch template** button.
-
-Before the job starts, the survey will prompt for **First Line** and **Second Line**. Enter your text and click **Next**. The **Preview** window shows the values—if all looks good, click **Finish** to start the job.
-
-![Survey Launch](images/survey_launch.png)
-
-![Survey Review](images/survey_review.png)
-
-Once the job completes, verify the Apache homepage by running the following `curl` command in the SSH console on the control host:
-
-Go to Automation Execution → Infrastructure → Inventories → Workshop Inventory
-
-In the **Automation Execution → Infrastructure → Inventories → Workshop Inventory, select the Hosts tab and select node1 and click Run Command
-
-Within the Details window, select Module command, in Arguments type `curl http://node1` and click Next.
-
-Within the Execution Environment window, select Default execution environment and click Next.
-
-Within the Credential window, select Workshop Credentials and click Next.
-
-Review your inputs and click Finish.
-
-Verify that the output result is as expected.
-
-
-![Run Command](images/run_command.png)
+* The survey should automatically lunch
+* Select Nodes 2 & 3 → Click **Next**
+* Click **Finish**
+> **Tip**
+>
+> [Node selection](images/survey_node_selection.png)
 
 ---
 **Navigation**

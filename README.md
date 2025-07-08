@@ -52,8 +52,8 @@ Having said that, the exercises themselves should take roughly 4-5 hours. The fi
 * [Exercise 2.3 - Working with job templates](2.3-projects)
 * [Exercise 2.4 - Workflows](2.4-workflows/)
 * [Exercise 2.5 - Surveys](2.5-surveys/)
-* [Exercise 2.6 - Role-based Access Control (RBAC)](2.6-rbac/)
-* [Exercise 2.7 - Wrap up](2.7-wrap)
+* [**Extra Credit** Exercise 2.6 - Role-based Access Control (RBAC)](2.6-rbac/)
+* [**Extra Credit** Exercise 2.7 - Wrap up](2.7-wrap)
 
 ---
 ![Red Hat Ansible Automation](./images/rh-ansible-automation-platform.png)
