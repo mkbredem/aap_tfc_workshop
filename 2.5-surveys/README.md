@@ -46,7 +46,7 @@ This time we will let ansible do most of the heavy lifting, so lets launch Solut
 * **Decommission Server Before Destroy:** And finally, the workflow that stitches the jobs above along with other jobs for ITSM tracking (i.e. creating CR, updating CR, creating Incidents upone failure, etc...)
 
 ### Add a Survey to "Decommission Server Before Destroy" WFJT
-Now that all the resources are present to decommission the server, we need a way to know which servers to decommission. In Terraform + AAP integrated situation, Terraform would make an API call to AAP's restAPI and AAP would gather gather the diff between plan and actual resources that are provisioned.  If there are servers that are "planned" to be destroyed, then this would be passed to our **Decommission Server Before Destroy** WFJT.  
+Now that all the resources are present to decommission the server, we need a way to know which servers to decommission. In a Terraform + AAP integrated environment, Terraform would make an API call to AAP's restAPI and AAP would gather gather the diff between plan and actual resources that are provisioned.  If there are servers that are "planned" to be destroyed, then this would be passed to our **Decommission Server Before Destroy** WFJT.  
 
 Since we don't have an integration for this lab, we will use a survey to define which servers are to be destroyed.
 
