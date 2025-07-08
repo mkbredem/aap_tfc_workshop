@@ -54,6 +54,7 @@
             insertafter: BOF
             state: present
           loop: "{{ sites }}"
+          notify: restart httpd
 
         - name: Open ports 8001 and 8002 in firewalld
           ansible.posix.firewalld:
